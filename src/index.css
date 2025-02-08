@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Outfit:wght@100..900&display=swap');@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: "Open Sans", sans-serif;
+    /* Equivalent to font-opensans */
+}
+html {
+    scroll-behavior: smooth;
+  }
+
+  #cta {
+    background-image: url('./assets/images/bg-simplify-section-desktop.svg');
+    background-repeat: no-repeat;
+  }
+  
+  @media (max-width: 576px) {
+    body {
+      background-position: 50px -50px;
+      background-size: 500px;
+    }
+  
+    #cta {
+      background-image: url('./assets/images/bg-simplify-section-mobile.svg');
+    }
+  }
+  
+  /* Hamburger Menu */
+  .hamburger {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    transition: all 0.25s;
+    position: relative;
+  }
+  
+  .hamburger-top,
+  .hamburger-middle,
+  .hamburger-bottom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background: #000;
+    transform: rotate(0);
+    transition: all 0.5s;
+  }
+  
+  .hamburger-middle {
+    transform: translateY(7px);
+  }
+  
+  .hamburger-bottom {
+    transform: translateY(14px);
+  }
+  
+  .open {
+    transform: rotate(90deg);
+    transform: translateY(0px);
+  }
+  
+  .open .hamburger-top {
+    transform: rotate(45deg) translateY(6px) translate(6px);
+  }
+  
+  .open .hamburger-middle {
+    display: none;
+  }
+  
+  .open .hamburger-bottom {
+    transform: rotate(-45deg) translateY(6px) translate(-6px);
+  }
+
+/* Marquee container */
+.marquee {
+  position: relative;
+  width: 100%; /* Ensures the text scrolls across the full width */
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex; /* Allows smooth duplication */
+}
+
+/* Scrolling text */
+.marquee p {
+  display: inline-block;
+  animation: marquee 10s linear infinite; /* Continuous scrolling animation */
+  margin-right: 50px; /* Space between text items */
+}
+
+/* Duplicate the text for seamless loop */
+.marquee p:nth-child(2) {
+  margin-left: -100%; /* Offset the duplicate */
+}
+
+/* Keyframes for seamless scrolling */
+@keyframes marquee {
+  0% {
+    transform: translateX(100%); /* Start from the right corner */
+  }
+  100% {
+    transform: translateX(-100%); /* Move off-screen to the left */
+  }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .marquee p {
+    animation: marquee 16s linear infinite; /* Faster scrolling on smaller screens */
+    margin-right: 80px; /* Space between text items */
+  }
+}
