@@ -4,6 +4,7 @@ import HomeEnquiryForm from '../../components/Home/HomeEnquiryForm'
 import HomeInfo from '../../components/Home/HomeInfo'
 import Features from '../../components/Home/WhyChooseUs'
 import HomeAboutUs from '../../components/Home/HomeAboutUs'
+import SolarStatsSection from '../../components/Home/HomeSolarStatsSection'
 
 const HomeIndex = () => {
   return (
@@ -13,6 +14,7 @@ const HomeIndex = () => {
       <HomeEnquiryForm/>
       <HomeAboutUs />
       <Features />
+      <SolarStatsSection/>
     </div>
   )
 }
