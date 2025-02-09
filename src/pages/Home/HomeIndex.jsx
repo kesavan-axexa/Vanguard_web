@@ -10,8 +10,8 @@ const HomeIndex = () => {
     <div>
       <Hero/>
       <HomeInfo />
-      {/* <HomeAboutUs /> */}
       <HomeEnquiryForm/>
+      <HomeAboutUs />
       <Features />
     </div>
   )

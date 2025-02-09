@@ -11,7 +11,7 @@ import Logo from "/Logo.png"; // Replace with your Vanguard Solar logo path
 
 const Footer = () => {
   return (
-    <footer className="bg-customGreen text-white font-semibold py-10 md:px-20 rounded-t-3xl px-5 relative overflow-hidden">
+    <footer className="bg-customGreen text-white font-medium py-10 md:px-20 rounded-t-3xl px-5 relative overflow-hidden">
       {/* SVG Background */}
       <div className="absolute inset-0 right-0 top-0 opacity-10">
         <svg
@@ -94,7 +94,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 grid-cols-1 gap-10">
           {/* Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Our Solutions</h3>
+            <h3 className="text-lg font-medium mb-4">Our Solutions</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <a
@@ -123,7 +123,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-medium mb-4">Quick Links</h3>
             <div className="grid md:grid-cols-2 grid-cols-1 md:gap-x-10 text-sm">
               {/* First Column */}
               <ul className="space-y-2">
@@ -185,7 +185,7 @@ const Footer = () => {
 
           {/* Address */}
           <div className="col-span-2">
-            <h3 className="text-lg font-semibold mb-4">Address</h3>
+            <h3 className="text-lg font-medium mb-4">Address</h3>
             <p className="text-sm leading-relaxed">
               75-7 Kattu Salai, Chinnu Nagar, Paramathi Velur, Namakkal Dt Tamil
               Nadu, India.

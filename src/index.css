@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 body {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Outfit", "sans-serif";
+    font-weight: normal;
     /* Equivalent to font-opensans */
 }
 html {
