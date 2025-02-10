@@ -5,6 +5,8 @@ import AboutIndex from "./pages/About/AboutIndex";
 import Navbar from "./components/Shared/Navbar";
 import Footer from "./components/Shared/Footer";
 import CallToAction from "./components/Shared/CallToAction";
+import ServicesIndex from "./pages/Services/ServicesIndex";
+import SolarSubsidyIndex from "./pages/SolarSubsidy/SolarSubsidyIndex";
 
 // const Home = () => <div className="text-center p-10">Welcome to the Landing Page</div>;
 // const About = () => <div className="text-center p-10">About Us</div>;
@@ -25,6 +27,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomeIndex />} />
         <Route path="/about" element={<AboutIndex />} />
+        <Route path="/services" element={<ServicesIndex />} />
+        <Route path="/solar-subsidy" element={<SolarSubsidyIndex />} />
         {/* <Route path="/contact" element={<Contact />} /> */}
       </Routes>
       {/* <CallToAction /> */}

@@ -16,16 +16,16 @@ const Navbar = () => {
         </div>
         {/* Menu Items */}
         <div className="hidden space-x-6 lg:flex">
-          <Link to="#" className="hover:text-green-700 hover:font-semibold">
+          <Link to="/" className="hover:text-green-700 hover:font-semibold">
             Home
           </Link>
-          <Link to="#" className="hover:text-green-700 hover:font-semibold">
+          <Link to="/about" className="hover:text-green-700 hover:font-semibold">
             About Us
           </Link>
-          <Link to="#" className="hover:text-green-700 hover:font-semibold">
+          <Link to="/" className="hover:text-green-700 hover:font-semibold">
             Our Services
           </Link>
-          <Link to="#" className="hover:text-green-700 hover:font-semibold">
+          <Link to="/solar-subsidy" className="hover:text-green-700 hover:font-semibold">
             Solar Subsidy
           </Link>
           <Link to="#" className="hover:text-green-700 hover:font-semibold">
@@ -64,10 +64,10 @@ const Navbar = () => {
               : "absolute flex-col items-center hidden self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"
           }
         >
-          <Link to="#" className="hover:text-green-700 hover:font-semibold">Home</Link>
-          <Link to="#" className="hover:text-green-700 hover:font-semibold">About Us</Link>
+          <Link to="/" className="hover:text-green-700 hover:font-semibold">Home</Link>
+          <Link to="/about" className="hover:text-green-700 hover:font-semibold">About Us</Link>
           <Link to="#" className="hover:text-green-700 hover:font-semibold">Our Services</Link>
-          <Link to="#" className="hover:text-green-700 hover:font-semibold">Solar Subsidy</Link>
+          <Link to="/solar-subsidy" className="hover:text-green-700 hover:font-semibold">Solar Subsidy</Link>
           <Link to="#" className="hover:text-green-700 hover:font-semibold">Contact Us</Link>
         </div>
       </div>

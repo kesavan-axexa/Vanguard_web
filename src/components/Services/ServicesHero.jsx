@@ -47,7 +47,7 @@ function ElegantShape({
   );
 }
 
-function AboutHero() {
+function ServicesHero() {
   const fadeUpVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: (i) => ({
@@ -82,12 +82,8 @@ function AboutHero() {
             animate="visible"
           >
             <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold mb-6 md:mb-8 tracking-tight text-white">
-              About
-              <br />
-              {/* bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300 */}
-              <span className="text-white">
-                Vanguard Solar
-              </span>
+              Our Services
+            
             </h1>
           </motion.div>
 
@@ -98,12 +94,9 @@ function AboutHero() {
             animate="visible"
           >
             <p className="text-base sm:text-md md:text-lg text-white/80 mb-8 leading-relaxed font-light tracking-wide max-w-4xl mx-auto px-4 text-justify lg:text-center">
-              Founded in 2008, Vanguard Solar has been at the forefront of the
-              solar revolution, making clean and renewable energy accessible to
-              homes and businesses across Tamil Nadu, India. With a strong
-              commitment to quality, innovation, and customer satisfaction, we
-              have grown into a trusted and certified MSME, completing 50+
-              installations every month.
+            We provide comprehensive solar solutions tailored for residential, commercial, and industrial needs. 
+      From seamless installation and maintenance to on-grid and off-grid system setups, we ensure maximum efficiency 
+      and long-term savings.
             </p>
           </motion.div>
         </div>
@@ -113,4 +106,4 @@ function AboutHero() {
     </div>
   );
 }
-export default AboutHero;
+export default ServicesHero;

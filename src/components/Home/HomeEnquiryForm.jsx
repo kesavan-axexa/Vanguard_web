@@ -19,29 +19,29 @@ const HomeEnquiryForm = () => {
 
   const [errors, setErrors] = useState({});
 
-  useEffect(() => {
-    gsap.from(".animate-left", {
-      opacity: 0,
-      x: -50,
-      duration: 1,
-      scrollTrigger: {
-        trigger: ".animate-left",
-        start: "top 80%",
-        toggleActions: "play none none reset",
-      },
-    });
+  // useEffect(() => {
+  //   gsap.from(".animate-left", {
+  //     opacity: 0,
+  //     x: -50,
+  //     duration: 1,
+  //     scrollTrigger: {
+  //       trigger: ".animate-left",
+  //       start: "top 80%",
+  //       toggleActions: "play none none reset",
+  //     },
+  //   });
 
-    gsap.from(".animate-right", {
-      opacity: 0,
-      y: 20,
-      duration: 1,
-      scrollTrigger: {
-        trigger: ".animate-right",
-        start: "top 80%",
-        toggleActions: "play none none reset",
-      },
-    });
-  }, []);
+  //   gsap.from(".animate-right", {
+  //     opacity: 0,
+  //     y: 20,
+  //     duration: 1,
+  //     scrollTrigger: {
+  //       trigger: ".animate-right",
+  //       start: "top 80%",
+  //       toggleActions: "play none none reset",
+  //     },
+  //   });
+  // }, []);
 
   const validateForm = () => {
     let newErrors = {};

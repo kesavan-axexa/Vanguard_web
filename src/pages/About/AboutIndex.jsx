@@ -1,9 +1,18 @@
-import React from 'react'
+import AboutHero from "@/components/About/AboutHero";
+import BentoGrid from "@/components/About/BentoGrid";
+import JoinSolarMovement from "@/components/About/JoinSolarMovement";
+import VisionMission from "@/components/About/VisionMission";
+import React from "react";
 
 const AboutIndex = () => {
   return (
-    <div>AboutIndex</div>
-  )
-}
+    <>
+      <AboutHero />
+      <BentoGrid />
+      <VisionMission />
+      <JoinSolarMovement />
+    </>
+  );
+};
 
-export default AboutIndex
+export default AboutIndex;
