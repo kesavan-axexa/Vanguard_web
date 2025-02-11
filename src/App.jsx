@@ -7,6 +7,7 @@ import Footer from "./components/Shared/Footer";
 import CallToAction from "./components/Shared/CallToAction";
 import ServicesIndex from "./pages/Services/ServicesIndex";
 import SolarSubsidyIndex from "./pages/SolarSubsidy/SolarSubsidyIndex";
+import ContactUsIndex from "./pages/ContactUs/ContactUsIndex";
 
 // const Home = () => <div className="text-center p-10">Welcome to the Landing Page</div>;
 // const About = () => <div className="text-center p-10">About Us</div>;
@@ -29,9 +30,9 @@ const App = () => {
         <Route path="/about" element={<AboutIndex />} />
         <Route path="/services" element={<ServicesIndex />} />
         <Route path="/solar-subsidy" element={<SolarSubsidyIndex />} />
-        {/* <Route path="/contact" element={<Contact />} /> */}
+        <Route path="/contact" element={<ContactUsIndex />} />
       </Routes>
-      {/* <CallToAction /> */}
+      <CallToAction whatsapp="9994796006" />
       <Footer />
     </Router>
   );

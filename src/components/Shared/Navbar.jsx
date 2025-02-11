@@ -1,75 +1,119 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import companyLogo from "/Logo.png";
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [isSticky, setIsSticky] = useState(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      setIsSticky(window.scrollY < lastScrollY || window.scrollY === 0);
+      lastScrollY = window.scrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to top when navigating to a new page
+    setIsSticky(true);
+  }, [location.pathname]);
 
   return (
-    <nav className="relative  mx-auto text-sm md:px-10 px-5">
-      {/* Flex Container */}
-      <div className="flex items-center justify-between">
+    <nav
+      className={`sticky top-0 w-full z-50 bg-white/90 shadow-md transition-transform duration-300 ${
+        isSticky ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
+      <div className="mx-auto text-sm md:px-10 px-5 flex items-center justify-between">
         {/* Logo */}
-        <div className="">
-          <img src={companyLogo} alt="" className="w-36 h-20" />
+        <div>
+          <img src={companyLogo} alt="Company Logo" className="w-36 h-20" />
         </div>
+
         {/* Menu Items */}
         <div className="hidden space-x-6 lg:flex">
-          <Link to="/" className="hover:text-green-700 hover:font-semibold">
-            Home
-          </Link>
-          <Link to="/about" className="hover:text-green-700 hover:font-semibold">
-            About Us
-          </Link>
-          <Link to="/" className="hover:text-green-700 hover:font-semibold">
-            Our Services
-          </Link>
-          <Link to="/solar-subsidy" className="hover:text-green-700 hover:font-semibold">
-            Solar Subsidy
-          </Link>
-          <Link to="#" className="hover:text-green-700 hover:font-semibold">
-            Contact Us
-          </Link>
+          {[
+            { path: "/", label: "Home" },
+            { path: "/about", label: "About Us" },
+            { path: "/services", label: "Our Services" },
+            { path: "/solar-subsidy", label: "Solar Subsidy" },
+            { path: "/contact", label: "Contact Us" },
+          ].map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className={`hover:text-green-700 hover:font-semibold ${
+                location.pathname === item.path ? "text-customGreen5 font-semibold" : ""
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
         </div>
+
         {/* Button */}
         <Link
-          to="#"
-          className="hidden  px-4 py-2  text-white bg-customGreen rounded-full baseline hover:bg-customGreen1 lg:block"
+          to="/contact"
+          className="hidden px-4 py-2 text-white bg-customGreen rounded-full hover:bg-customGreen1 lg:block"
         >
           Get Started
         </Link>
 
         {/* Hamburger Icon */}
         <button
-          className={
-            toggleMenu
-              ? "open block hamburger lg:hidden focus:outline-none"
-              : "block hamburger lg:hidden focus:outline-none"
-          }
+          className="block lg:hidden focus:outline-none"
           onClick={() => setToggleMenu(!toggleMenu)}
         >
-          <span className="hamburger-top"></span>
-          <span className="hamburger-middle"></span>
-          <span className="hamburger-bottom"></span>
+          <div className="flex flex-col space-y-1">
+            <span
+              className={`block w-6 h-0.5 bg-black transition-transform duration-300 ${
+                toggleMenu ? "rotate-45 translate-y-1.5" : ""
+              }`}
+            ></span>
+            <span
+              className={`block w-6 h-0.5 bg-black transition-opacity duration-300 ${
+                toggleMenu ? "opacity-0" : ""
+              }`}
+            ></span>
+            <span
+              className={`block w-6 h-0.5 bg-black transition-transform duration-300 ${
+                toggleMenu ? "-rotate-45 -translate-y-1.5" : ""
+              }`}
+            ></span>
+          </div>
         </button>
       </div>
 
       {/* Mobile Menu */}
-      <div className="lg:hidden">
-        <div
-          className={
-            toggleMenu
-              ? "absolute flex flex-col items-center self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"
-              : "absolute flex-col items-center hidden self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"
-          }
-        >
-          <Link to="/" className="hover:text-green-700 hover:font-semibold">Home</Link>
-          <Link to="/about" className="hover:text-green-700 hover:font-semibold">About Us</Link>
-          <Link to="#" className="hover:text-green-700 hover:font-semibold">Our Services</Link>
-          <Link to="/solar-subsidy" className="hover:text-green-700 hover:font-semibold">Solar Subsidy</Link>
-          <Link to="#" className="hover:text-green-700 hover:font-semibold">Contact Us</Link>
-        </div>
+      <div
+        className={`absolute w-full left-0 mt-5 rounded-lg top-full bg-white shadow-md py-6 flex flex-col items-center space-y-4 transform transition-transform duration-300 origin-top ${
+          toggleMenu ? "scale-y-100" : "scale-y-0 hidden"
+        }`}
+      >
+        {[
+          { path: "/", label: "Home" },
+          { path: "/about", label: "About Us" },
+          { path: "/services", label: "Our Services" },
+          { path: "/solar-subsidy", label: "Solar Subsidy" },
+          { path: "/contact", label: "Contact Us" },
+        ].map((item) => (
+          <Link
+            key={item.path}
+            to={item.path}
+            className={`hover:text-green-700 hover:font-semibold ${
+              location.pathname === item.path ? "text-customGreen5 font-semibold" : ""
+            }`}
+            onClick={() => setToggleMenu(false)} // Close menu on click
+          >
+            {item.label}
+          </Link>
+        ))}
       </div>
     </nav>
   );

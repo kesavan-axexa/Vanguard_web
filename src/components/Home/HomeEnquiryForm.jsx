@@ -5,9 +5,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 // Register ScrollTrigger
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
+gsap.registerPlugin(ScrollTrigger);
 
 const HomeEnquiryForm = () => {
   const [formData, setFormData] = useState({
@@ -19,29 +17,41 @@ const HomeEnquiryForm = () => {
 
   const [errors, setErrors] = useState({});
 
-  // useEffect(() => {
-  //   gsap.from(".animate-left", {
-  //     opacity: 0,
-  //     x: -50,
-  //     duration: 1,
-  //     scrollTrigger: {
-  //       trigger: ".animate-left",
-  //       start: "top 80%",
-  //       toggleActions: "play none none reset",
-  //     },
-  //   });
+  const sectionRef = useRef(null);
+  const textRef = useRef(null);
+  const imageRef = useRef(null);
 
-  //   gsap.from(".animate-right", {
-  //     opacity: 0,
-  //     y: 20,
-  //     duration: 1,
-  //     scrollTrigger: {
-  //       trigger: ".animate-right",
-  //       start: "top 80%",
-  //       toggleActions: "play none none reset",
-  //     },
-  //   });
-  // }, []);
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Text Content Animation (Left Side)
+      gsap.from(textRef.current, {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      // Image Animation (Right Side)
+      gsap.from(imageRef.current, {
+        opacity: 0,
+        y: -50,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
 
   const validateForm = () => {
     let newErrors = {};
@@ -68,27 +78,35 @@ const HomeEnquiryForm = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-green-50 px-4 py-8">
+    <div
+      className="flex items-center justify-center min-h-[80vh] bg-green-50 px-4 py-8"
+      ref={sectionRef}
+    >
       <div className="w-full max-w-6xl flex flex-col lg:flex-row items-center justify-center lg:gap-20 gap-10">
         {/* Left Content Section */}
-        <div className="relative bg-gradient-to-r from-customGreen to-customGreen max-w-lg text-white md:p-10 p-5 rounded-lg shadow-2xl text-left flex flex-col items-center lg:items-start overflow-hidden animate-left">
-          <div className="text-left">
-            <MdSolarPower className="text-yellow-300 text-7xl animate-pulse z-10" />
-          </div>
-          <h1 className="text-4xl font-bold mt-4 z-10">
-            Schedule Your <span className="text-green-900">FREE</span>{" "}
-            <span className="text-customGrey2">Solar Consultation!</span>
+        <div ref={textRef}>
+          <h1 className="text-2xl text-customGreen5 py-3 font-bold">
+            Want To Reduce Electricity Bill?
           </h1>
-          <p className="mt-3 text-base font-medium leading-relaxed z-10">
-            Honest advice from our experts—no pressure, no hassle. Book only
-            when you're ready to switch to solar! 🌞
-          </p>
+          <div className="relative bg-gradient-to-r from-customGreen to-customGreen max-w-lg text-white md:p-10 p-5 rounded-lg shadow-2xl text-left flex flex-col items-center lg:items-start overflow-hidden animate-left">
+            <div className="text-left">
+              <MdSolarPower className="text-yellow-300 text-7xl animate-pulse z-10" />
+            </div>
+            <h1 className="text-4xl font-bold mt-4 z-10">
+              Schedule Your <span className="text-green-900">FREE</span>{" "}
+              <span className="text-customGrey2">Solar Consultation!</span>
+            </h1>
+            <p className="mt-3 text-base font-medium leading-relaxed z-10">
+              Honest advice from our experts—no pressure, no hassle. Book only
+              when you're ready to switch to solar! 🌞
+            </p>
+          </div>
         </div>
-
         {/* Right Form Section */}
         <form
-          className="bg-white p-8 rounded-lg shadow-lg space-y-6 w-full max-w-lg border border-green-200 animate-right"
+          className="bg-white p-8  rounded-lg shadow-lg space-y-6 w-full max-w-lg border border-green-200 animate-right"
           onSubmit={handleSubmit}
+          ref={imageRef}
         >
           {[
             { id: "name", icon: <FaUser />, placeholder: "Full Name" },
@@ -96,17 +114,22 @@ const HomeEnquiryForm = () => {
             { id: "city", icon: <FaCity />, placeholder: "City" },
           ].map((field, index) => (
             <div key={index} className="relative">
-              <label htmlFor={field.id} className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor={field.id}
+                className="block text-sm font-medium text-gray-700"
+              >
                 {field.placeholder} <span className="text-red-500">*</span>
               </label>
               <div className="relative">
-                <div className="absolute left-3 top-4 text-gray-400">{field.icon}</div>
+                <div className="absolute left-3 top-4 text-gray-400">
+                  {field.icon}
+                </div>
                 <input
                   type="text"
                   id={field.id}
                   value={formData[field.id]}
                   onChange={handleChange}
-                  className="mt-1 block w-full pl-10 p-3 rounded-md border border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500 transition-all"
+                  className="mt-1 block w-full pl-10 p-3 rounded-md border border-gray-300 shadow-sm focus:ring-customGreen focus:border-customGreen transition-all"
                   placeholder={`Enter your ${field.placeholder.toLowerCase()}`}
                 />
               </div>
@@ -118,7 +141,10 @@ const HomeEnquiryForm = () => {
 
           {/* Electricity Bill Dropdown */}
           <div>
-            <label htmlFor="billRange" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="billRange"
+              className="block text-sm font-medium text-gray-700"
+            >
               Monthly Electricity Bill <span className="text-red-500">*</span>
             </label>
             <div className="relative">
@@ -127,7 +153,7 @@ const HomeEnquiryForm = () => {
                 id="billRange"
                 value={formData.billRange}
                 onChange={handleChange}
-                className="mt-1 block w-full pl-10 p-3 rounded-md border border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500 transition-all"
+                className="mt-1 block w-full pl-10 p-3 rounded-md border border-gray-300 shadow-sm focus:ring-customGreen focus:border-customGreen transition-all"
               >
                 <option value="">Select your bill range</option>
                 <option value="less1500">Less than ₹1500</option>
@@ -137,7 +163,9 @@ const HomeEnquiryForm = () => {
                 <option value="more8000">More than ₹8000</option>
               </select>
             </div>
-            {errors.billRange && <p className="text-red-500 text-xs mt-1">{errors.billRange}</p>}
+            {errors.billRange && (
+              <p className="text-red-500 text-xs mt-1">{errors.billRange}</p>
+            )}
           </div>
 
           {/* Submit Button */}
@@ -145,7 +173,9 @@ const HomeEnquiryForm = () => {
             type="submit"
             className="w-full bg-customGreen5 flex items-center text-sm justify-center text-white py-3 rounded-md hover:bg-customGreen transition-all shadow-md transform"
           >
-            <FaCheckCircle className="mr-2" /> Yes! Reduce My Electricity Bill
+            <FaCheckCircle className="mr-2" /> Yes! Reduce My{" "}
+            <span className="md:block hidden">&nbsp;Electricity Bill</span>{" "}
+            <span className="md:hidden block">&nbsp;EB</span>
           </button>
         </form>
       </div>

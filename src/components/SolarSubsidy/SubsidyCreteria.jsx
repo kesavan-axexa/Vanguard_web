@@ -61,7 +61,7 @@ const SubsidyCriteria = () => {
 
           {/* Dark Overlay */}
           {hovered === "left" && (
-            <div className="absolute inset-0 bg-gradient-to-tr from-black via-black/70 to-transparent opacity-100 transition-all duration-500"></div>
+            <div className="absolute inset-0 bg-gradient-to-tr from-black/90 via-black/50 to-transparent opacity-100 transition-all duration-500"></div>
           )}
 
           <div className="relative z-10 hover:cursor-pointer">
@@ -130,7 +130,7 @@ const SubsidyCriteria = () => {
 
           {/* Dark Overlay */}
           {hovered === "right" && (
-            <div className="absolute inset-0 bg-gradient-to-tr from-black via-black/70 to-transparent opacity-100 transition-all duration-500"></div>
+            <div className="absolute inset-0 bg-gradient-to-tr from-black/90 via-black/50 to-transparent opacity-100 transition-all duration-500"></div>
           )}
 
           <div className="relative z-10 hover:cursor-pointer">

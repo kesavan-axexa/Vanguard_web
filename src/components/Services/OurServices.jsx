@@ -37,37 +37,69 @@ const services = [
 
 export default function OurServices() {
   return (
-    <section id="our-services" className="pb-14 bg-white ">
-      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        
-
-        {/* Service Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-12 sm:gap-x-12 text-center">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              viewport={{ once: true }}
-              className="flex flex-col justify-center items-center md:p-8 lg:p-14"
-            >
-              {/* Icon Wrapper */}
-              <div className={`w-14 h-14 rounded-full ${service.bgColor} flex justify-center items-center`}>
-                {service.icon}
-              </div>
-
-              {/* Title */}
-              <h3 className="mt-8 text-xl font-bold text-gray-900 ">{service.title}</h3>
-
-              {/* Description */}
-              <p className="mt-4 text-base text-gray-600  max-w-xs">
-                {service.description}
-              </p>
-            </motion.div>
-          ))}
-        </div>
+    <section id="our-services" className="py-16 my-5 bg-gray-50">
+    <div className="px-6 mx-auto max-w-7xl sm:px-8 lg:px-10 text-center">
+      {/* Heading */}
+      <div className="text-center mb-12">
+        <h2 className="text-4xl font-bold text-customGreen mb-2">
+        What We Offer
+        </h2>
+        <p className="text-lg text-gray-600 ">
+        We provide high-quality services tailored to your needs.
+        </p>
       </div>
-    </section>
+      {/* Service Grid with Asymmetric Layout */}
+      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+        {services.slice(0, 2).map((service, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="bg-white rounded-2xl shadow-lg hover:shadow-xl p-8 flex flex-col items-center transition duration-500"
+          >
+            <div className={`w-16 h-16 rounded-xl ${service.bgColor} flex justify-center items-center text-3xl`}>
+              {service.icon}
+            </div>
+            <h3 className="mt-6 text-2xl font-semibold text-gray-900">{service.title}</h3>
+            <p className="mt-4 text-gray-600 text-center">{service.description}</p>
+          </motion.div>
+        ))}
+
+        {services.slice(2, 4).map((service, index) => (
+          <motion.div
+            key={index + 2}
+            initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="bg-white rounded-2xl shadow-lg hover:shadow-xl p-8 flex flex-col items-center transition duration-500"
+          >
+            <div className={`w-16 h-16 rounded-xl ${service.bgColor} flex justify-center items-center text-3xl`}>
+              {service.icon}
+            </div>
+            <h3 className="mt-6 text-2xl font-semibold text-gray-900">{service.title}</h3>
+            <p className="mt-4 text-gray-600 text-center">{service.description}</p>
+          </motion.div>
+        ))}
+
+        {/* Full-width card */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="md:col-span-2 bg-white rounded-2xl shadow-lg hover:shadow-xl p-8 flex flex-col items-center transition duration-500"
+        >
+          <div className={`w-20 h-20 rounded-xl ${services[4].bgColor} flex justify-center items-center text-4xl`}>
+            {services[4].icon}
+          </div>
+          <h3 className="mt-6 text-3xl font-semibold text-gray-900">{services[4].title}</h3>
+          <p className="mt-4 text-lg text-gray-600 text-center max-w-xl">{services[4].description}</p>
+        </motion.div>
+      </div>
+    </div>
+  </section>
   );
 }

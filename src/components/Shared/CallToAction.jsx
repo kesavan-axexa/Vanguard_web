@@ -1,26 +1,84 @@
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { FaWhatsapp } from "react-icons/fa";
 
-const CallToAction = () => {
+const CallToAction = ({ whatsapp }) => {
+  const [rippleClass, setRippleClass] = useState("");
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  const handleRippleEffect = (e) => {
+    setRippleClass("ripple");
+    setTimeout(() => setRippleClass(""), 600);
+  };
+
+  const handleWhatsAppClick = () => {
+    if (whatsapp) {
+      const message = encodeURIComponent(
+        "Hello, I’m interested in exploring Vanguard Solar's solar energy solutions. Could you please provide more information about your services and help me schedule a consultation?"
+      );
+      window.open(
+        `https://api.whatsapp.com/send/?phone=%2B91${whatsapp}&text=${message}&type=phone_number&app_absent=0`,
+        "_blank"
+      );
+    } else {
+      alert("WhatsApp number is not available.");
+    }
+  };
+
   return (
-    <section id="cta" className="bg-customGreen md:m-20 m-5 rounded-xl">
-      {/* Flex Container */}
-      <div className="container flex flex-col items-center justify-between md:px-40 px-6 py-24 mx-auto my-10 space-y-12 md:py-12 lg:flex-row lg:space-y-0">
-        {/* Heading */}
-        <h2 className="text-2xl font-bold leading-tight text-center text-white md:text-3xl md:max-w-xl md:text-left">
-          Let us assist you in switching to solar and securing your government
-          subsidy with ease!
-        </h2>
-        {/* Button */}
-        <div>
-          <Link
-            to="#"
-            className="md:px-6 px-4 py-2 text-customGreen1 w-full text-sm font-semibold bg-white rounded-full shadow-2xl baseline hover:bg-customGreen5 hover:text-white"
-          >
-            Get a Free Consultation Today
-          </Link>
-        </div>
-      </div>
-    </section>
+    <div className="fixed bottom-8 left-8 z-[1000]">
+      {/* Tooltip */}
+      {/* {showTooltip && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 10 }}
+          transition={{ duration: 0.3 }}
+          className="absolute bottom-16 right-0 bg-black text-white text-sm px-3 py-1 rounded-md shadow-lg"
+        >
+          Contact Us
+        </motion.div>
+      )} */}
+
+      {/* WhatsApp Button */}
+      <motion.button
+        className={`relative bg-customGreen5 text-white p-4 rounded-full shadow-lg ${rippleClass}`}
+        onClick={handleWhatsAppClick}
+        onMouseDown={handleRippleEffect}
+        onMouseEnter={() => setShowTooltip(true)}
+        onMouseLeave={() => setShowTooltip(false)}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        transition={{ type: "spring", stiffness: 200, damping: 10 }}
+      >
+        <FaWhatsapp className="h-6 w-6 " />
+      </motion.button>
+
+      {/* Ripple Effect */}
+      <style>
+        {`
+          .ripple::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            animation: rippleEffect 0.6s linear;
+          }
+
+          @keyframes rippleEffect {
+            to {
+              transform: translate(-50%, -50%) scale(2);
+              opacity: 0;
+            }
+          }
+        `}
+      </style>
+    </div>
   );
 };
 

@@ -6,10 +6,9 @@ import React from "react";
 const ServicesIndex = () => {
   return (
     <div>
-      {/* <ServicesHero />
+      <ServicesHero />
       <OurServices />
-      <WhyGoSolar /> */}
-      Services
+      <WhyGoSolar />
     </div>
   );
 };

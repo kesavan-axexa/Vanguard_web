@@ -94,30 +94,45 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 grid-cols-1 gap-10">
           {/* Links */}
           <div>
-            <h3 className="text-lg font-medium mb-4">Our Solutions</h3>
+            <h3 className="text-lg font-medium mb-4">Our Services</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <a
-                  href="#"
+                   href="/services"
                   className="hover:bg-white hover:text-customGreen px-2 py-1 rounded transition duration-300"
                 >
-                  Homes
+                 Residential Solar Solutions
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                    href="/services"
                   className="hover:bg-white hover:text-customGreen px-2 py-1 rounded transition duration-300"
                 >
-                  Commercial
+                Commercial & Industrial Solar
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                    href="/services"
                   className="hover:bg-white hover:text-customGreen px-2 py-1 rounded transition duration-300"
                 >
-                  Housing Society
+                  Solar Panel Installation & Maintenance
+                </a>
+              </li>
+              <li>
+                <a
+                   href="/services"
+                  className="hover:bg-white hover:text-customGreen px-2 py-1 rounded transition duration-300"
+                >
+                 On-Grid & Off-Grid Solutions
+                </a>
+              </li>  <li>
+                <a
+                  href="/services"
+                  className="hover:bg-white hover:text-customGreen px-2 py-1 rounded transition duration-300"
+                >
+                  Solar Financing & Subsidies Assistance
                 </a>
               </li>
             </ul>
@@ -127,17 +142,17 @@ const Footer = () => {
             <div className="grid md:grid-cols-2 grid-cols-1 md:gap-x-10 text-sm">
               {/* First Column */}
               <ul className="space-y-2">
-                <li>
+                {/* <li>
                   <a
-                    href="#"
+                    href="/"
                     className="hover:bg-white hover:text-customGreen px-2 py-1 rounded transition duration-300"
                   >
                     Home
                   </a>
-                </li>
+                </li> */}
                 <li>
                   <a
-                    href="#"
+                    href="/about"
                     className="hover:bg-white hover:text-customGreen px-2 py-1 rounded transition duration-300"
                   >
                     About Us
@@ -145,7 +160,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                      href="/services"
                     className="hover:bg-white hover:text-customGreen px-2 py-1 rounded transition duration-300"
                   >
                     Our Services
@@ -157,7 +172,7 @@ const Footer = () => {
               <ul className="space-y-2 md:mt-0 mt-2">
                 <li>
                   <a
-                    href="#"
+                    href="/solar-subsidy"
                     className="hover:bg-white hover:text-customGreen px-2 py-1 rounded transition duration-300"
                   >
                     Solar Subsidy
@@ -165,20 +180,20 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/contact"
                     className="hover:bg-white hover:text-customGreen px-2 py-1 rounded transition duration-300"
                   >
                     Contact Us
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   <a
                     href="#"
                     className="hover:bg-white hover:text-customGreen px-2 py-1 rounded transition duration-300"
                   >
                     Off-Grid Solar
                   </a>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>

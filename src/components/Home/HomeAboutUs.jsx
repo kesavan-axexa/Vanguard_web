@@ -7,6 +7,7 @@ import {
   FaDollarSign,
   FaHandshake,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,7 +21,7 @@ export default function HomeAboutUs() {
       // Text Content Animation (Left Side)
       gsap.from(textRef.current, {
         opacity: 0,
-        x: -50,
+        y: -50,
         duration: 1,
         ease: "power2.out",
         scrollTrigger: {
@@ -33,7 +34,7 @@ export default function HomeAboutUs() {
       // Image Animation (Right Side)
       gsap.from(imageRef.current, {
         opacity: 0,
-        x: 50,
+        y: 50,
         duration: 1,
         ease: "power2.out",
         scrollTrigger: {
@@ -88,9 +89,12 @@ export default function HomeAboutUs() {
           </div>
 
           {/* Know More Button */}
-          <button className="mt-4 px-5 py-2 text-sm bg-customGreen text-white rounded-lg shadow-md hover:bg-customGreen5 transition-all">
+          <Link
+            to={"/about"}
+            className="mt-4 px-5 py-2 text-sm bg-customGreen text-white rounded-lg shadow-md hover:bg-customGreen5 transition-all"
+          >
             Know More
-          </button>
+          </Link>
         </div>
 
         {/* Left Side - Image with Decorative SVG */}
