@@ -47,7 +47,7 @@ const SubsidyCriteria = () => {
             ${
               hovered === "left"
                 ? "bg-cover bg-center bg-[url('/Subsidy_Img1.jpg')] text-white"
-                : "bg-green-50"
+                : "bg-black bg-opacity-50"
             }`}
           onMouseEnter={() => setHovered("left")}
           onMouseLeave={() => setHovered(null)}
@@ -60,14 +60,16 @@ const SubsidyCriteria = () => {
           ></div>
 
           {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black bg-opacity-60 transition-all duration-500"></div>
+
           {hovered === "left" && (
-            <div className="absolute inset-0 bg-gradient-to-tr from-black/90 via-black/50 to-transparent opacity-100 transition-all duration-500"></div>
+            <div className="absolute inset-0 bg-gradient-to-tr from-black/90 via-black/0 to-transparent opacity-100 transition-all duration-500"></div>
           )}
 
           <div className="relative z-10 hover:cursor-pointer">
             <h2
               className={`md:text-3xl text-2xl font-bold mb-6 ${
-                hovered === "left" ? "text-white" : "text-customGreen5"
+                hovered === "left" ? "text-white" : "text-customGreen"
               }`}
             >
               💸 Subsidy & Easy Financing
@@ -90,7 +92,7 @@ const SubsidyCriteria = () => {
                 <li key={index} className="flex items-center space-x-4">
                   <span
                     className={`text-3xl ${
-                      hovered === "left" ? "text-white" : "text-customGreen5"
+                      hovered === "left" ? "text-white" : "text-customGreen"
                     }`}
                   >
                     {item.icon}
@@ -99,7 +101,7 @@ const SubsidyCriteria = () => {
                     className={`${
                       hovered === "left"
                         ? "text-neutral-100 font-semibold"
-                        : "text-gray-700"
+                        : "text-gray-100"
                     }`}
                   >
                     {item.text}
@@ -116,7 +118,7 @@ const SubsidyCriteria = () => {
             ${
               hovered === "right"
                 ? "bg-cover bg-center bg-[url('/Subsidy_Img2.jpg')] text-white"
-                : "bg-green-50"
+                : "bg-black bg-opacity-50"
             }`}
           onMouseEnter={() => setHovered("right")}
           onMouseLeave={() => setHovered(null)}
@@ -129,14 +131,16 @@ const SubsidyCriteria = () => {
           ></div>
 
           {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black bg-opacity-60 transition-all duration-500"></div>
+
           {hovered === "right" && (
-            <div className="absolute inset-0 bg-gradient-to-tr from-black/90 via-black/50 to-transparent opacity-100 transition-all duration-500"></div>
+            <div className="absolute inset-0 bg-gradient-to-tr from-black/90 via-black/0 to-transparent opacity-100 transition-all duration-500"></div>
           )}
 
           <div className="relative z-10 hover:cursor-pointer">
             <h2
               className={`md:text-3xl text-2xl font-bold mb-6 ${
-                hovered === "right" ? "text-white" : "text-customGreen5"
+                hovered === "right" ? "text-white" : "text-customGreen"
               }`}
             >
               🎯 Who Can Apply?
@@ -163,14 +167,14 @@ const SubsidyCriteria = () => {
                 <li key={index} className="flex items-center space-x-4">
                   <span
                     className={`text-3xl ${
-                      hovered === "right" ? "text-white" : "text-customGreen5"
+                      hovered === "right" ? "text-white" : "text-customGreen"
                     }`}
                   >
                     {item.icon}
                   </span>
                   <span
                     className={`${
-                      hovered === "right" ? "text-white" : "text-gray-700"
+                      hovered === "right" ? "text-white" : "text-gray-100"
                     }`}
                   >
                     {item.text}

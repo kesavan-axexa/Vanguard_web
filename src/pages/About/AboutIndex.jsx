@@ -1,3 +1,4 @@
+import AboutGrid from "@/components/About/AboutGrid";
 import AboutHero from "@/components/About/AboutHero";
 import BentoGrid from "@/components/About/BentoGrid";
 import JoinSolarMovement from "@/components/About/JoinSolarMovement";
@@ -10,6 +11,7 @@ const AboutIndex = () => {
       <AboutHero />
       <BentoGrid />
       <VisionMission />
+      <AboutGrid  />
       <JoinSolarMovement />
     </>
   );

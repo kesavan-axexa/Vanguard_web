@@ -76,39 +76,35 @@ html {
 
 /* Marquee container */
 .marquee {
-  position: relative;
-  width: 100%; /* Ensures the text scrolls across the full width */
+  display: flex;
   overflow: hidden;
   white-space: nowrap;
-  display: flex; /* Allows smooth duplication */
+  width: 100%;
+  position: relative;
 }
 
-/* Scrolling text */
-.marquee p {
-  display: inline-block;
-  animation: marquee 10s linear infinite; /* Continuous scrolling animation */
-  margin-right: 50px; /* Space between text items */
+/* Scrolling text wrapper */
+.marquee-content {
+  display: flex;
+  gap: 100px; /* Space between texts */
+  min-width: 200%;
+  animation: marquee 15s linear infinite;
 }
 
-/* Duplicate the text for seamless loop */
-.marquee p:nth-child(2) {
-  margin-left: -100%; /* Offset the duplicate */
-}
-
-/* Keyframes for seamless scrolling */
+/* Keyframes for smooth infinite scrolling */
 @keyframes marquee {
-  0% {
-    transform: translateX(100%); /* Start from the right corner */
+  from {
+    transform: translateX(15%);
   }
-  100% {
-    transform: translateX(-100%); /* Move off-screen to the left */
+  to {
+    transform: translateX(-62%);
   }
 }
 
 /* Mobile-specific adjustments */
 @media (max-width: 768px) {
-  .marquee p {
-    animation: marquee 16s linear infinite; /* Faster scrolling on smaller screens */
-    margin-right: 80px; /* Space between text items */
+  .marquee-content {
+    animation: marquee 10s linear infinite; /* Faster scrolling on smaller screens */
   }
 }
+

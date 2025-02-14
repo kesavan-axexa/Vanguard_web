@@ -26,7 +26,7 @@ const CallToAction = ({ whatsapp }) => {
   };
 
   return (
-    <div className="fixed bottom-8 left-8 z-[1000]">
+    <div className="fixed bottom-5 right-5 z-[1000]">
       {/* Tooltip */}
       {/* {showTooltip && (
         <motion.div
@@ -41,9 +41,8 @@ const CallToAction = ({ whatsapp }) => {
       )} */}
 
       {/* WhatsApp Button */}
-      <motion.button
-        className={`relative bg-customGreen5 text-white p-4 rounded-full shadow-lg ${rippleClass}`}
-        onClick={handleWhatsAppClick}
+      {/* <motion.button
+        className={`relative bg-customGreen5 z-50 text-white hover:bg-green-700  p-4 rounded-full shadow-lg ${rippleClass}`}
         onMouseDown={handleRippleEffect}
         onMouseEnter={() => setShowTooltip(true)}
         onMouseLeave={() => setShowTooltip(false)}
@@ -51,8 +50,24 @@ const CallToAction = ({ whatsapp }) => {
         whileTap={{ scale: 0.9 }}
         transition={{ type: "spring", stiffness: 200, damping: 10 }}
       >
-        <FaWhatsapp className="h-6 w-6 " />
-      </motion.button>
+        <div className="w-2 h-2 bg-black rotate-45 z-50 absolute top-6 left-[-4px]"></div>
+
+        <FaWhatsapp className="text-xl" />
+      </motion.button> */}
+
+      <div className="fixed bottom-5 md:right-5 right-2 z-50 group flex items-center">
+        <div className="absolute right-14 bg-black text-white text-xs px-4 py-2 rounded-md opacity-0 group-hover:opacity-100 transition-opacity max-w-xs whitespace-nowrap shadow-md">
+          {/* Interested in partnering with us? */}
+          Reach out us on Whatsapp!
+          <div className="w-2 h-2 bg-black rotate-45 absolute top-3 right-[-4px]"></div>
+        </div>
+        <button
+          className="bg-customGreen5 p-4 rounded-full shadow-lg text-white hover:bg-green-700 transition-all"
+          onClick={handleWhatsAppClick}
+        >
+          <FaWhatsapp className="text-xl" />
+        </button>
+      </div>
 
       {/* Ripple Effect */}
       <style>

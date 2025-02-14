@@ -26,16 +26,16 @@ const SolarStatsSection = () => {
   
           {/* Stats */}
           <div className="col-span-1 md:col-span-1 lg:col-span-1 flex flex-col items-center justify-center gap-y-3">
-            <h2 className="text-3xl lg:text-4xl text-white font-bold">500 MW+</h2>
+            <h2 className="text-3xl lg:text-4xl text-white font-bold">50 MW+</h2>
             <p className="text-center text-sm md:text-base text-white">Solar energy generated</p>
           </div>
           <div className="col-span-1 md:col-span-1 lg:col-span-1 flex flex-col items-center justify-center gap-y-3">
-            <h2 className="text-3xl lg:text-4xl text-white font-bold">2M+ Tons</h2>
+            <h2 className="text-3xl lg:text-4xl text-white font-bold">1M+ Tons</h2>
             <p className="text-center text-sm md:text-base text-white">Carbon emissions saved</p>
           </div>
           <div className="col-span-1 md:col-span-1 lg:col-span-1 flex flex-col items-center justify-center gap-y-3">
             <h2 className="text-3xl lg:text-4xl text-white font-bold">10,000+</h2>
-            <p className="text-center text-sm md:text-base text-white">Solar installations worldwide</p>
+            <p className="text-center text-sm md:text-base text-white">Solar installations</p>
           </div>
         </div>
       </div>

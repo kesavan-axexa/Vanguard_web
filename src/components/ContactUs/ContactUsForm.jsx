@@ -1,14 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import {
-  FaUser,
-  FaPhone,
-  FaCity,
-  FaBolt,
-  FaCheckCircle,
-} from "react-icons/fa";
+import { FaUser, FaPhone, FaCity, FaBolt, FaCheckCircle } from "react-icons/fa";
 import { BiMessageDetail } from "react-icons/bi";
-
 import { motion } from "framer-motion";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ContactUsForm = () => {
   const [formData, setFormData] = useState({
@@ -19,6 +14,7 @@ const ContactUsForm = () => {
   });
   const [errors, setErrors] = useState({});
   const [isOpen, setIsOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const popupRef = useRef(null);
 
   useEffect(() => {
@@ -54,19 +50,41 @@ const ContactUsForm = () => {
     setFormData((prev) => ({ ...prev, [id]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      alert("Form submitted successfully!");
+    if (!validateForm()) return;
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/send-enquiry-form`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        toast.success("Form submitted successfully!");
+        setFormData({ name: "", phone: "", city: "", billRange: "" });
+        setIsOpen(false);
+      } else {
+        toast.error(result.message || "Something went wrong!");
+      }
+    } catch (error) {
+      console.log("error",error);
+      toast.error("Network error. Please try again.");
     }
+
+    setIsSubmitting(false);
   };
 
   return (
     <div>
       {/* Floating Button with Tooltip */}
-      <div className="fixed bottom-5 right-5 z-50 group flex items-center">
+      <div className="fixed bottom-5 md:right-5 right-2 z-50 group flex items-center">
         <div className="absolute right-14 bg-black text-white text-xs px-4 py-2 rounded-md opacity-0 group-hover:opacity-100 transition-opacity max-w-xs whitespace-nowrap shadow-md">
-          Interested in partnering with us?
+          Reach out to us!
           <div className="w-2 h-2 bg-black rotate-45 absolute top-4 right-[-4px]"></div>
         </div>
         <button
@@ -84,7 +102,7 @@ const ContactUsForm = () => {
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed bottom-20 right-5 z-50 bg-white p-6 rounded-lg shadow-lg border border-gray-200 w-80"
+          className="fixed bottom-20 md:right-5 z-50 bg-white p-6 rounded-lg shadow-lg border border-gray-200 w-80"
         >
           <form className="space-y-4" onSubmit={handleSubmit}>
             {[
@@ -151,8 +169,9 @@ const ContactUsForm = () => {
             <button
               type="submit"
               className="w-full bg-customGreen5 text-sm flex items-center justify-center text-white py-2 rounded-md hover:bg-customGreen4 transition-all shadow-md"
+              disabled={isSubmitting}
             >
-              <FaCheckCircle className="mr-2" /> Submit
+              {isSubmitting ? "Submitting..." : <><FaCheckCircle className="mr-2" /> Submit</>}
             </button>
           </form>
         </motion.div>

@@ -59,7 +59,7 @@ const Navbar = () => {
 
         {/* Button */}
         <Link
-          to="/contact"
+          to="/contact-with-vanguard"
           className="hidden px-4 py-2 text-white bg-customGreen rounded-full hover:bg-customGreen1 lg:block"
         >
           Get Started

@@ -69,7 +69,7 @@ export default function JoinSolarMovement() {
 
         {/* Learn More Button */}
         <a
-          href="/solar-solutions"
+          href="/services"
           className="px-6 py-3 text-lg font-semibold text-green-600 border-2 border-green-600 rounded-lg shadow-lg transition-all duration-300 hover:bg-green-700 hover:text-white"
         >
           Learn More
@@ -77,7 +77,7 @@ export default function JoinSolarMovement() {
       </div>
 
       {/* Subtle Bottom Glow */}
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-green-700/20 to-transparent blur-3xl" />
+      {/* <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-green-700/20 to-transparent blur-3xl" /> */}
     </div>
   );
 }

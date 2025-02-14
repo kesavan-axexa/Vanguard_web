@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function SubsidyTable() {
   return (
-    <div className="relative flex flex-col justify-center items-center py-10 px-4 sm:px-6 lg:px-12 text-center bg-green-50 ">
+    <div className="relative flex flex-col justify-center items-center py-10 px-4 sm:px-6 lg:px-12 md:mt-20 mt-10 text-center bg-green-50 ">
       {/* Glowing Background */}
       {/* <div className="absolute inset-0 bg-gradient-to-b from-green-700/20 to-transparent blur-3xl" /> */}
 

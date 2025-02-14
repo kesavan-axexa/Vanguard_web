@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaUser, FaPhone, FaCity, FaBolt, FaCheckCircle } from "react-icons/fa";
 import { MdSolarPower } from "react-icons/md";
+import { toast } from "react-toastify";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
@@ -16,14 +17,15 @@ const HomeEnquiryForm = () => {
   });
 
   const [errors, setErrors] = useState({});
-
+  const [loading, setLoading] = useState(false); // Loader state
+  const BASE_URL = import.meta.env.VITE_BASE_URL;
+  
   const sectionRef = useRef(null);
   const textRef = useRef(null);
   const imageRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Text Content Animation (Left Side)
       gsap.from(textRef.current, {
         opacity: 0,
         y: 50,
@@ -36,7 +38,6 @@ const HomeEnquiryForm = () => {
         },
       });
 
-      // Image Animation (Right Side)
       gsap.from(imageRef.current, {
         opacity: 0,
         y: -50,
@@ -70,10 +71,32 @@ const HomeEnquiryForm = () => {
     setFormData((prev) => ({ ...prev, [id]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      alert("Form submitted successfully!");
+      setLoading(true); // Start loading
+      try {
+        const response = await fetch(`${BASE_URL}/send-email`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const data = await response.json();
+        if (data.success) {
+          toast.success("Form submitted successfully!");
+          setFormData({ name: "", phone: "", city: "", billRange: "" }); // Reset form
+        } else {
+          toast.error("Failed to send email. Please try again.");
+        }
+      } catch (error) {
+        console.error("Error submitting form:", error);
+        toast.error("An error occurred. Please try again later.");
+      } finally {
+        setLoading(false); // Stop loading
+      }
     }
   };
 
@@ -86,12 +109,10 @@ const HomeEnquiryForm = () => {
         {/* Left Content Section */}
         <div ref={textRef}>
           <h1 className="text-2xl text-customGreen5 py-3 font-bold">
-            Want To Reduce Electricity Bill?
+            Want To Reduce Electricity Bill (EB)?
           </h1>
           <div className="relative bg-gradient-to-r from-customGreen to-customGreen max-w-lg text-white md:p-10 p-5 rounded-lg shadow-2xl text-left flex flex-col items-center lg:items-start overflow-hidden animate-left">
-            <div className="text-left">
-              <MdSolarPower className="text-yellow-300 text-7xl animate-pulse z-10" />
-            </div>
+            <MdSolarPower className="text-yellow-300 text-7xl animate-pulse z-10" />
             <h1 className="text-4xl font-bold mt-4 z-10">
               Schedule Your <span className="text-green-900">FREE</span>{" "}
               <span className="text-customGrey2">Solar Consultation!</span>
@@ -102,9 +123,10 @@ const HomeEnquiryForm = () => {
             </p>
           </div>
         </div>
+
         {/* Right Form Section */}
         <form
-          className="bg-white p-8  rounded-lg shadow-lg space-y-6 w-full max-w-lg border border-green-200 animate-right"
+          className="bg-white p-8 rounded-lg shadow-lg space-y-6 w-full max-w-lg border border-green-200 animate-right"
           onSubmit={handleSubmit}
           ref={imageRef}
         >
@@ -114,16 +136,11 @@ const HomeEnquiryForm = () => {
             { id: "city", icon: <FaCity />, placeholder: "City" },
           ].map((field, index) => (
             <div key={index} className="relative">
-              <label
-                htmlFor={field.id}
-                className="block text-sm font-medium text-gray-700"
-              >
+              <label htmlFor={field.id} className="block text-sm font-medium text-gray-700">
                 {field.placeholder} <span className="text-red-500">*</span>
               </label>
               <div className="relative">
-                <div className="absolute left-3 top-4 text-gray-400">
-                  {field.icon}
-                </div>
+                <div className="absolute left-3 top-4 text-gray-400">{field.icon}</div>
                 <input
                   type="text"
                   id={field.id}
@@ -133,18 +150,13 @@ const HomeEnquiryForm = () => {
                   placeholder={`Enter your ${field.placeholder.toLowerCase()}`}
                 />
               </div>
-              {errors[field.id] && (
-                <p className="text-red-500 text-xs mt-1">{errors[field.id]}</p>
-              )}
+              {errors[field.id] && <p className="text-red-500 text-xs mt-1">{errors[field.id]}</p>}
             </div>
           ))}
 
           {/* Electricity Bill Dropdown */}
           <div>
-            <label
-              htmlFor="billRange"
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label htmlFor="billRange" className="block text-sm font-medium text-gray-700">
               Monthly Electricity Bill <span className="text-red-500">*</span>
             </label>
             <div className="relative">
@@ -163,19 +175,16 @@ const HomeEnquiryForm = () => {
                 <option value="more8000">More than ₹8000</option>
               </select>
             </div>
-            {errors.billRange && (
-              <p className="text-red-500 text-xs mt-1">{errors.billRange}</p>
-            )}
+            {errors.billRange && <p className="text-red-500 text-xs mt-1">{errors.billRange}</p>}
           </div>
 
           {/* Submit Button */}
           <button
             type="submit"
             className="w-full bg-customGreen5 flex items-center text-sm justify-center text-white py-3 rounded-md hover:bg-customGreen transition-all shadow-md transform"
+            disabled={loading}
           >
-            <FaCheckCircle className="mr-2" /> Yes! Reduce My{" "}
-            <span className="md:block hidden">&nbsp;Electricity Bill</span>{" "}
-            <span className="md:hidden block">&nbsp;EB</span>
+            {loading ? "Submitting..." : <><FaCheckCircle className="mr-2" /> Yes! Reduce My EB</>}
           </button>
         </form>
       </div>

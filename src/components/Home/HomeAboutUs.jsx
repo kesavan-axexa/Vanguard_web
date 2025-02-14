@@ -18,7 +18,6 @@ export default function HomeAboutUs() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Text Content Animation (Left Side)
       gsap.from(textRef.current, {
         opacity: 0,
         y: -50,
@@ -31,7 +30,6 @@ export default function HomeAboutUs() {
         },
       });
 
-      // Image Animation (Right Side)
       gsap.from(imageRef.current, {
         opacity: 0,
         y: 50,
@@ -100,18 +98,23 @@ export default function HomeAboutUs() {
         {/* Left Side - Image with Decorative SVG */}
         <div className="relative" ref={imageRef}>
           <img
-            src="/About_Img.jpg"
+            src="/Home_About.jpg"
             alt="Solar Power"
-            className="w-full max-h-[400px] z-50 object-cover rounded-3xl shadow-xl"
+            className="w-full max-h-[400px] z-50 object-cover"
           />
           {/* Decorative Dots SVG */}
           <div className="absolute top-[-20px] lg:-right-16 -right-12 transform -translate-x-1/2 grid grid-cols-4 gap-2">
             {Array.from({ length: 12 }).map((_, i) => (
               <span
                 key={i}
-                className="w-3 h-3 bg-green-300 rounded-full opacity-70"
+                className="w-3 h-3 bg-customGreen5  rounded-full opacity-40"
               ></span>
             ))}
+          </div>
+          {/* Gradient Overlay with Text */}
+          <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black to-transparent opacity-90 py-4 px-4 text-white text-center">
+            <h4 className="text-lg font-semibold">Our Sample Installations</h4>
+            <p className="text-sm font-bold text-customGreen">A Preview of Your Future System</p>
           </div>
         </div>
       </div>

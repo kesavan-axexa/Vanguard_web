@@ -28,7 +28,7 @@ const Hero = () => {
       {/* Hero Section */}
       <div
         className="relative h-[75vh] bg-cover bg-center -z-10"
-        style={{ backgroundImage: "url('/Hero_Img.jpg')" }}
+        style={{ backgroundImage: "url('/Hero.jpg')" }}
       >
         {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black-opacity-20 to-transparent"></div>

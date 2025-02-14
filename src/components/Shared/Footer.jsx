@@ -7,7 +7,7 @@ import {
   FaPhoneAlt,
   FaEnvelope,
 } from "react-icons/fa";
-import Logo from "/Logo.png"; // Replace with your Vanguard Solar logo path
+import Logo from "/logo.jpg"; // Replace with your Vanguard Solar logo path
 
 const Footer = () => {
   return (
@@ -27,13 +27,13 @@ const Footer = () => {
         </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 relative z-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 xl:grid-cols-2 gap-10 relative z-10">
         {/* Left Section */}
         <div>
           <img
             src={Logo}
             alt="Vanguard Solar Logo"
-            className="w-40 h-auto mb-4"
+            className="w-40 h-auto mb-4 rounded-lg"
           />
           <p className="mb-4 text-sm leading-relaxed md:w-96">
             Earn with Us! Become a partner and grow with Vanguard Solar. Connect
@@ -99,7 +99,7 @@ const Footer = () => {
               <li>
                 <a
                    href="/services"
-                  className="hover:bg-white hover:text-customGreen px-2 py-1 rounded transition duration-300"
+                  className="hover:bg-white hover:text-customGreen  py-1 rounded transition duration-300"
                 >
                  Residential Solar Solutions
                 </a>
@@ -107,7 +107,7 @@ const Footer = () => {
               <li>
                 <a
                     href="/services"
-                  className="hover:bg-white hover:text-customGreen px-2 py-1 rounded transition duration-300"
+                  className="hover:bg-white hover:text-customGreen  py-1 rounded transition duration-300"
                 >
                 Commercial & Industrial Solar
                 </a>
@@ -115,22 +115,22 @@ const Footer = () => {
               <li>
                 <a
                     href="/services"
-                  className="hover:bg-white hover:text-customGreen px-2 py-1 rounded transition duration-300"
+                  className="hover:bg-white hover:text-customGreen  py-1 rounded transition duration-300"
                 >
-                  Solar Panel Installation & Maintenance
+                  Solar Panel Installation 
                 </a>
               </li>
               <li>
                 <a
                    href="/services"
-                  className="hover:bg-white hover:text-customGreen px-2 py-1 rounded transition duration-300"
+                  className="hover:bg-white hover:text-customGreen  py-1 rounded transition duration-300"
                 >
                  On-Grid & Off-Grid Solutions
                 </a>
               </li>  <li>
                 <a
                   href="/services"
-                  className="hover:bg-white hover:text-customGreen px-2 py-1 rounded transition duration-300"
+                  className="hover:bg-white hover:text-customGreen  py-1 rounded transition duration-300"
                 >
                   Solar Financing & Subsidies Assistance
                 </a>
@@ -153,7 +153,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="/about"
-                    className="hover:bg-white hover:text-customGreen px-2 py-1 rounded transition duration-300"
+                    className="hover:bg-white hover:text-customGreen  py-1 rounded transition duration-300"
                   >
                     About Us
                   </a>
@@ -161,7 +161,7 @@ const Footer = () => {
                 <li>
                   <a
                       href="/services"
-                    className="hover:bg-white hover:text-customGreen px-2 py-1 rounded transition duration-300"
+                    className="hover:bg-white hover:text-customGreen  py-1 rounded transition duration-300"
                   >
                     Our Services
                   </a>
@@ -173,7 +173,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="/solar-subsidy"
-                    className="hover:bg-white hover:text-customGreen px-2 py-1 rounded transition duration-300"
+                    className="hover:bg-white hover:text-customGreen  py-1 rounded transition duration-300"
                   >
                     Solar Subsidy
                   </a>
@@ -181,7 +181,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="/contact"
-                    className="hover:bg-white hover:text-customGreen px-2 py-1 rounded transition duration-300"
+                    className="hover:bg-white hover:text-customGreen  py-1 rounded transition duration-300"
                   >
                     Contact Us
                   </a>
@@ -189,7 +189,7 @@ const Footer = () => {
                 {/* <li>
                   <a
                     href="#"
-                    className="hover:bg-white hover:text-customGreen px-2 py-1 rounded transition duration-300"
+                    className="hover:bg-white hover:text-customGreen  py-1 rounded transition duration-300"
                   >
                     Off-Grid Solar
                   </a>
@@ -203,7 +203,7 @@ const Footer = () => {
             <h3 className="text-lg font-medium mb-4">Address</h3>
             <p className="text-sm leading-relaxed">
               75-7 Kattu Salai, Chinnu Nagar, Paramathi Velur, Namakkal Dt Tamil
-              Nadu, India.
+              Nadu, India - 638182.
             </p>
           </div>
         </div>

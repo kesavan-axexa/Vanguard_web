@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import HomeIndex from "./pages/Home/HomeIndex";
 import AboutIndex from "./pages/About/AboutIndex";
 import Navbar from "./components/Shared/Navbar";
@@ -8,22 +13,16 @@ import CallToAction from "./components/Shared/CallToAction";
 import ServicesIndex from "./pages/Services/ServicesIndex";
 import SolarSubsidyIndex from "./pages/SolarSubsidy/SolarSubsidyIndex";
 import ContactUsIndex from "./pages/ContactUs/ContactUsIndex";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Form from "./components/GetStarted/Form";
 
-// const Home = () => <div className="text-center p-10">Welcome to the Landing Page</div>;
-// const About = () => <div className="text-center p-10">About Us</div>;
-// const Contact = () => <div className="text-center p-10">Contact Us</div>;
+const AppContent = () => {
+  const location = useLocation();
 
-// const Navbar = () => (
-//   <nav className="bg-gray-800 p-4 text-white flex justify-center space-x-4">
-//     <Link to="/" className="hover:text-gray-300">Home</Link>
-//     <Link to="/about" className="hover:text-gray-300">About</Link>
-//     <Link to="/contact" className="hover:text-gray-300">Contact</Link>
-//   </nav>
-// );
-
-const App = () => {
   return (
-    <Router>
+    <>
+      <ToastContainer />
       <Navbar />
       <Routes>
         <Route path="/" element={<HomeIndex />} />
@@ -31,9 +30,20 @@ const App = () => {
         <Route path="/services" element={<ServicesIndex />} />
         <Route path="/solar-subsidy" element={<SolarSubsidyIndex />} />
         <Route path="/contact" element={<ContactUsIndex />} />
+        <Route path="/contact-with-vanguard" element={<Form />} />
       </Routes>
-      <CallToAction whatsapp="9994796006" />
+      {location.pathname !== "/contact" && (
+        <CallToAction whatsapp="9994796006" />
+      )}
       <Footer />
+    </>
+  );
+};
+
+const App = () => {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 };

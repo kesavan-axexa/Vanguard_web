@@ -14,8 +14,8 @@ const SolarSubsidyIndex = () => {
         <SolarSubsidyCards/>
         <SubsidyCreteria />
         <SubsidyAbout/>
-        <SubsidyFAQ/>
         <SubsidyTable/>
+        <SubsidyFAQ/>
         <SubsidyAction/>
     </div>
   );
