@@ -183,7 +183,7 @@ const Footer = () => {
                     href="/contact"
                     className="hover:bg-white hover:text-customGreen  py-1 rounded transition duration-300"
                   >
-                    Contact Us
+                    Vanguard Pro
                   </a>
                 </li>
                 {/* <li>

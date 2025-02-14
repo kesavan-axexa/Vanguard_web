@@ -37,13 +37,13 @@ const Navbar = () => {
         </div>
 
         {/* Menu Items */}
-        <div className="hidden space-x-6 lg:flex">
+        <div className="hidden lg:space-x-6 space-x-2 lg:flex">
           {[
             { path: "/", label: "Home" },
             { path: "/about", label: "About Us" },
             { path: "/services", label: "Our Services" },
             { path: "/solar-subsidy", label: "Solar Subsidy" },
-            { path: "/contact", label: "Contact Us" },
+            { path: "/contact", label: "Vanguard Pro" },
           ].map((item) => (
             <Link
               key={item.path}
@@ -60,7 +60,7 @@ const Navbar = () => {
         {/* Button */}
         <Link
           to="/contact-with-vanguard"
-          className="hidden px-4 py-2 text-white bg-customGreen rounded-full hover:bg-customGreen1 lg:block"
+          className=" px-4 py-2 text-white md:text-base text-xs bg-customGreen rounded-full hover:bg-customGreen1 block"
         >
           Get Started
         </Link>
