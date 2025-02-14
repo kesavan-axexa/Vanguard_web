@@ -110,7 +110,7 @@ function ContactUsHero() {
             animate="visible"
           >
             <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold mb-6 md:mb-8 tracking-tight text-white">
-              Contact Pro
+              Vanguard Pro
             </h1>
           </motion.div>
 
