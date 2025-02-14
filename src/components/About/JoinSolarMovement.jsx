@@ -68,12 +68,12 @@ export default function JoinSolarMovement() {
         </div>
 
         {/* Learn More Button */}
-        <Link
+        {/* <Link
           to="/services"
           className="px-6 py-3 text-lg font-semibold text-green-600 border-2 border-green-600 rounded-lg shadow-lg transition-all duration-300 hover:bg-green-700 hover:text-white"
         >
           Learn More
-        </Link>
+        </Link> */}
       </div>
 
       {/* Subtle Bottom Glow */}
