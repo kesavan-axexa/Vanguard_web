@@ -105,7 +105,7 @@ export default function OurServices() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
               viewport={{ once: true }}
-              className="relative bg-white rounded-3xl shadow-xl hover:shadow-2xl p-8 flex flex-col items-center transition-all duration-500 group border border-gray-200 hover:border-customGreen md:col-span-2 w-full max-w-[50%] mx-auto"
+              className="relative bg-white rounded-3xl shadow-xl hover:shadow-2xl p-8 flex flex-col items-center transition-all duration-500 group border border-gray-200 hover:border-customGreen md:col-span-2 w-full lg:max-w-[50%] mx-auto"
             >
               {/* <div className="absolute inset-0 bg-gradient-to-br from-customGreen/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-3xl" /> */}
               <div
@@ -137,7 +137,7 @@ export default function OurServices() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.4 }}
         viewport={{ once: true }}
-        className="max-w-4xl mx-auto overflow-hidden rounded-lg shadow-lg bg-white mt-10"
+        className="max-w-4xl mx-auto overflow-x-auto rounded-lg shadow-lg bg-white mt-10"
       >
         <table className="w-full border-collapse">
           <thead className="bg-customGreen text-white">
@@ -189,7 +189,6 @@ export default function OurServices() {
             ].map((row, index) => (
               <motion.tr
                 key={index}
-                whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
                 className="transition-all duration-300 hover:bg-green-100 "
               >
