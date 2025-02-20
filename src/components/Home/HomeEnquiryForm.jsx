@@ -192,7 +192,7 @@ const HomeEnquiryForm = () => {
               <p className="text-red-500 text-xs mt-1">{errors.billRange}</p>
             )}
           </div>
-          ;{/* Submit Button */}
+          {/* Submit Button */}
           <button
             type="submit"
             className="w-full bg-customGreen5 flex items-center md:text-sm text-xs justify-center text-white py-3 rounded-md hover:bg-customGreen transition-all shadow-md transform"
