@@ -103,7 +103,17 @@ html {
 
 /* Mobile-specific adjustments */
 @media (max-width: 768px) {
+  .marquee-content { 
+    animation: marquee 10s linear infinite; /* Faster scrolling on smaller screens */
+  }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 430px) {
   .marquee-content {
+    display: flex;
+    gap: 100px; /* Space between texts */
+    min-width:480%;  
     animation: marquee 10s linear infinite; /* Faster scrolling on smaller screens */
   }
 }
