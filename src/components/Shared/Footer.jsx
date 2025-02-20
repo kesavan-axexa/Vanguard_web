@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   FaFacebookF,
   FaYoutube,
@@ -99,44 +100,44 @@ const Footer = () => {
             <h3 className="md:text-xl text-lg font-semibold mb-4">Our Services</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a
-                  href="/services"
-                  className="hover:bg-white hover:text-customGreen  py-1 rounded transition duration-300"
+                <Link
+                  to="/services"
+                  className="hover:bg-white hover:text-customGreen py-1 rounded transition duration-300"
                 >
                   Residential Solar Solutions
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/services"
-                  className="hover:bg-white hover:text-customGreen  py-1 rounded transition duration-300"
+                <Link
+                  to="/services"
+                  className="hover:bg-white hover:text-customGreen py-1 rounded transition duration-300"
                 >
                   Commercial & Industrial Solar
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/services"
-                  className="hover:bg-white hover:text-customGreen  py-1 rounded transition duration-300"
+                <Link
+                  to="/services"
+                  className="hover:bg-white hover:text-customGreen py-1 rounded transition duration-300"
                 >
                   Solar Panel Installation
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/services"
-                  className="hover:bg-white hover:text-customGreen  py-1 rounded transition duration-300"
+                <Link
+                  to="/services"
+                  className="hover:bg-white hover:text-customGreen py-1 rounded transition duration-300"
                 >
                   On-Grid & Off-Grid Solutions
-                </a>
-              </li>{" "}
+                </Link>
+              </li>
               <li>
-                <a
-                  href="/services"
-                  className="hover:bg-white hover:text-customGreen  py-1 rounded transition duration-300"
+                <Link
+                  to="/services"
+                  className="hover:bg-white hover:text-customGreen py-1 rounded transition duration-300"
                 >
                   Solar Financing & Subsidies Assistance
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -145,58 +146,42 @@ const Footer = () => {
             <div className="grid md:grid-cols-2 grid-cols-1 md:gap-x-10 text-sm">
               {/* First Column */}
               <ul className="space-y-2">
-                {/* <li>
-                  <a
-                    href="/"
-                    className="hover:bg-white hover:text-customGreen px-2 py-1 rounded transition duration-300"
-                  >
-                    Home
-                  </a>
-                </li> */}
                 <li>
-                  <a
-                    href="/about"
-                    className="hover:bg-white hover:text-customGreen  py-1 rounded transition duration-300"
+                  <Link
+                    to="/about"
+                    className="hover:bg-white hover:text-customGreen py-1 rounded transition duration-300"
                   >
                     About Us
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/services"
-                    className="hover:bg-white hover:text-customGreen  py-1 rounded transition duration-300"
+                  <Link
+                    to="/services"
+                    className="hover:bg-white hover:text-customGreen py-1 rounded transition duration-300"
                   >
                     Our Services
-                  </a>
+                  </Link>
                 </li>
               </ul>
 
               {/* Second Column */}
               <ul className="space-y-2 md:mt-0 mt-2">
                 <li>
-                  <a
-                    href="/solar-subsidy"
-                    className="hover:bg-white hover:text-customGreen  py-1 rounded transition duration-300"
+                  <Link
+                    to="/solar-subsidy"
+                    className="hover:bg-white hover:text-customGreen py-1 rounded transition duration-300"
                   >
                     Solar Subsidy
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/contact"
-                    className="hover:bg-white hover:text-customGreen  py-1 rounded transition duration-300"
+                  <Link
+                    to="/contact"
+                    className="hover:bg-white hover:text-customGreen py-1 rounded transition duration-300"
                   >
                     Vanguard Pro
-                  </a>
+                  </Link>
                 </li>
-                {/* <li>
-                  <a
-                    href="#"
-                    className="hover:bg-white hover:text-customGreen  py-1 rounded transition duration-300"
-                  >
-                    Off-Grid Solar
-                  </a>
-                </li> */}
               </ul>
             </div>
           </div>
@@ -205,8 +190,7 @@ const Footer = () => {
           <div className="col-span-2">
             <h3 className="md:text-xl text-lg font-semibold mb-4">Address</h3>
             <p className="text-sm leading-relaxed">
-              75-7 Kattu Salai, Chinnu Nagar, Paramathi Velur, Namakkal Dt Tamil
-              Nadu, India - 638182.
+              75-7 Kattu Salai, Chinnu Nagar, Paramathi Velur, Namakkal Dt Tamil Nadu, India - 638182.
             </p>
           </div>
         </div>

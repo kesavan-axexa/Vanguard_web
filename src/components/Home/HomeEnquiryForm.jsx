@@ -19,7 +19,7 @@ const HomeEnquiryForm = () => {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false); // Loader state
   const BASE_URL = import.meta.env.VITE_BASE_URL;
-  
+
   const sectionRef = useRef(null);
   const textRef = useRef(null);
   const imageRef = useRef(null);
@@ -136,11 +136,16 @@ const HomeEnquiryForm = () => {
             { id: "city", icon: <FaCity />, placeholder: "City" },
           ].map((field, index) => (
             <div key={index} className="relative">
-              <label htmlFor={field.id} className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor={field.id}
+                className="block text-sm font-medium text-gray-700"
+              >
                 {field.placeholder} <span className="text-red-500">*</span>
               </label>
               <div className="relative">
-                <div className="absolute left-3 top-4 text-gray-400">{field.icon}</div>
+                <div className="absolute left-3 top-4 text-gray-400">
+                  {field.icon}
+                </div>
                 <input
                   type="text"
                   id={field.id}
@@ -150,22 +155,30 @@ const HomeEnquiryForm = () => {
                   placeholder={`Enter your ${field.placeholder.toLowerCase()}`}
                 />
               </div>
-              {errors[field.id] && <p className="text-red-500 text-xs mt-1">{errors[field.id]}</p>}
+              {errors[field.id] && (
+                <p className="text-red-500 text-xs mt-1">{errors[field.id]}</p>
+              )}
             </div>
           ))}
 
           {/* Electricity Bill Dropdown */}
-          <div>
-            <label htmlFor="billRange" className="block text-sm font-medium text-gray-700">
+          <div className="w-full max-w-md mx-auto">
+            <label
+              htmlFor="billRange"
+              className="block text-sm font-medium text-gray-700"
+            >
               Monthly Electricity Bill <span className="text-red-500">*</span>
             </label>
             <div className="relative">
-              <FaBolt className="absolute left-3 top-4 text-gray-400" />
+              {/* Icon stays fixed */}
+              <FaBolt className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg" />
+
+              {/* Select Dropdown */}
               <select
                 id="billRange"
                 value={formData.billRange}
                 onChange={handleChange}
-                className="mt-1 block w-full pl-10 p-3 rounded-md border border-gray-300 shadow-sm focus:ring-customGreen focus:border-customGreen transition-all"
+                className="mt-1 block w-full pl-10 p-3 rounded-md border border-gray-300 shadow-sm focus:ring-customGreen focus:border-customGreen transition-all text-sm sm:text-base"
               >
                 <option value="">Select your bill range</option>
                 <option value="less1500">Less than ₹1500</option>
@@ -175,7 +188,9 @@ const HomeEnquiryForm = () => {
                 <option value="more8000">More than ₹8000</option>
               </select>
             </div>
-            {errors.billRange && <p className="text-red-500 text-xs mt-1">{errors.billRange}</p>}
+            {errors.billRange && (
+              <p className="text-red-500 text-xs mt-1">{errors.billRange}</p>
+            )}
           </div>
 
           {/* Submit Button */}
@@ -184,7 +199,14 @@ const HomeEnquiryForm = () => {
             className="w-full bg-customGreen5 flex items-center md:text-sm text-xs justify-center text-white py-3 rounded-md hover:bg-customGreen transition-all shadow-md transform"
             disabled={loading}
           >
-            {loading ? "Submitting..." : <><FaCheckCircle className="mr-2" /> Yes! Reduce My Electricity Bill</>}
+            {loading ? (
+              "Submitting..."
+            ) : (
+              <>
+                <FaCheckCircle className="mr-2" /> Yes! Reduce My Electricity
+                Bill
+              </>
+            )}
           </button>
         </form>
       </div>

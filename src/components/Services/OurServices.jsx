@@ -7,6 +7,7 @@ import {
   FaPlug,
   FaMoneyBillWave,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const services = [
   {
@@ -89,9 +90,12 @@ export default function OurServices() {
                 {service.description}
               </p>
               <div className="mt-6">
-                <button className="px-5 py-2 bg-customGreen text-white rounded-full shadow-md hover:bg-green-700 transition-all duration-300">
-                  <a href="/contact-with-vanguard">Get Quote</a>
-                </button>
+                <Link
+                  className="px-5 py-2 bg-customGreen text-white rounded-full shadow-md hover:bg-green-700 transition-all duration-300"
+                  to={"/contact-with-vanguard"}
+                >
+                  Get Quote
+                </Link>
               </div>
             </motion.div>
           ))}
@@ -116,9 +120,12 @@ export default function OurServices() {
                 {services[4].description}
               </p>
               <div className="mt-6">
-                <button className="px-5 py-2 bg-customGreen text-white rounded-full shadow-md hover:bg-green-700 transition-all duration-300">
-                  <a href="/contact-with-vanguard">Get Quote</a>
-                </button>
+                <Link
+                  className="px-5 py-2 bg-customGreen text-white rounded-full shadow-md hover:bg-green-700 transition-all duration-300"
+                  to={"/contact-with-vanguard"}
+                >
+                  Get Quote
+                </Link>
               </div>
             </motion.div>
           )}
