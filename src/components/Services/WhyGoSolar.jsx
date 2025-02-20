@@ -76,7 +76,6 @@ export default function WhyGoSolar() {
         ))}
       </motion.div>
 
-
       {/* Subtle Bottom Glow */}
       <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-green-700/20 to-transparent blur-3xl" />
     </div>

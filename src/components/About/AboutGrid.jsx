@@ -29,7 +29,6 @@ const AboutGrid = () => {
               className="absolute inset-0 h-full w-full object-cover transition duration-200 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-50"></div>
-            <span className="relative ml-4 mb-3 text-sm text-white md:text-lg">Sample - 1</span>
           </a>
 
           {/* Image 2 */}
@@ -45,7 +44,6 @@ const AboutGrid = () => {
               className="absolute inset-0 h-full w-full object-cover transition duration-200 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-50"></div>
-            <span className="relative ml-4 mb-3 text-sm text-white md:text-lg">Sample - 2</span>
           </a>
 
           {/* Image 3 */}
@@ -61,7 +59,6 @@ const AboutGrid = () => {
               className="absolute inset-0 h-full w-full object-cover transition duration-200 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-50"></div>
-            <span className="relative ml-4 mb-3 text-sm text-white md:text-lg">Sample - 3</span>
           </a>
 
           {/* Image 4 */}
@@ -77,7 +74,6 @@ const AboutGrid = () => {
               className="absolute inset-0 h-full w-full object-cover transition duration-200 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-50"></div>
-            <span className="relative ml-4 mb-3 text-sm text-white md:text-lg">Sample - 4</span>
           </a>
         </div>
       </div>

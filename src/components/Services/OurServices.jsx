@@ -1,11 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaHome, FaBuilding, FaTools, FaPlug, FaMoneyBillWave } from "react-icons/fa";
+import {
+  FaHome,
+  FaBuilding,
+  FaTools,
+  FaPlug,
+  FaMoneyBillWave,
+} from "react-icons/fa";
 
 const services = [
   {
     title: "Residential Solar Solutions",
-    description: "Power your home with clean energy and reduce electricity bills.",
+    description:
+      "Power your home with clean energy and reduce electricity bills.",
     icon: <FaHome className="text-white w-6 h-6" />,
     bgColor: "bg-customGreen",
   },
@@ -37,33 +44,42 @@ const services = [
 
 export default function OurServices() {
   return (
-    <section id="our-services" className="py-16 my-5 bg-gray-50 relative overflow-hidden">
-    {/* Background Gradient */}
-    <div className="relative px-6 mx-auto max-w-7xl sm:px-8 lg:px-10 text-center">
-      {/* Heading */}
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-customGreen mb-2 tracking-wide uppercase">
-          What We Offer
-        </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          We provide high-quality services tailored to your needs.
-        </p>
-      </div>
+    <section
+      id="our-services"
+      className="py-16 my-5 bg-gray-50 relative overflow-hidden"
+    >
+      {/* Background Gradient */}
+      <div className="relative px-6 mx-auto max-w-7xl sm:px-8 lg:px-10 text-center">
+        {/* Heading */}
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-customGreen mb-2 tracking-wide uppercase">
+            What We Offer
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            We provide high-quality services tailored to your needs.
+          </p>
+        </div>
 
-      {/* Service Grid with Modern Asymmetric Layout */}
-         {/* Service Grid with Modern Asymmetric Layout */}
-         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Service Grid with Modern Asymmetric Layout */}
+        {/* Service Grid with Modern Asymmetric Layout */}
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.slice(0, 4).map((service, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.15, ease: "easeOut" }}
+              transition={{
+                duration: 0.8,
+                delay: index * 0.15,
+                ease: "easeOut",
+              }}
               viewport={{ once: true }}
-              className="relative bg-white rounded-3xl shadow-xl hover:shadow-2xl p-8 flex flex-col items-center transition-all duration-500 group border border-gray-200 hover:border-customGreen"
+              className="relative bg-white hover:bg-gradient-to-br hover:from-customGreen/10 hover:to-transparent rounded-3xl shadow-xl hover:shadow-2xl p-8 flex flex-col items-center transition-all duration-500 group border border-gray-200 hover:border-customGreen"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-customGreen/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-3xl" />
-              <div className={`w-20 h-20 rounded-full ${service.bgColor} flex justify-center items-center text-4xl shadow-md group-hover:scale-110 transition-all duration-300`}> 
+              {/* <div className="absolute inset-0 bg-gradient-to-br from-customGreen/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-3xl" /> */}
+              <div
+                className={`w-20 h-20 rounded-full ${service.bgColor} flex justify-center items-center text-4xl shadow-md group-hover:scale-110 transition-all duration-300`}
+              >
                 {service.icon}
               </div>
               <h3 className="mt-6 text-2xl font-semibold text-gray-900 group-hover:text-customGreen transition-all duration-300">
@@ -74,7 +90,7 @@ export default function OurServices() {
               </p>
               <div className="mt-6">
                 <button className="px-5 py-2 bg-customGreen text-white rounded-full shadow-md hover:bg-green-700 transition-all duration-300">
-                  <a href="/services">Learn More</a>
+                  <a href="/contact-with-vanguard">Get Quote</a>
                 </button>
               </div>
             </motion.div>
@@ -87,8 +103,10 @@ export default function OurServices() {
               viewport={{ once: true }}
               className="relative bg-white rounded-3xl shadow-xl hover:shadow-2xl p-8 flex flex-col items-center transition-all duration-500 group border border-gray-200 hover:border-customGreen md:col-span-2 w-full max-w-[50%] mx-auto"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-customGreen/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-3xl" />
-              <div className={`w-20 h-20 rounded-full ${services[4].bgColor} flex justify-center items-center text-4xl shadow-md group-hover:scale-110 transition-all duration-300`}> 
+              {/* <div className="absolute inset-0 bg-gradient-to-br from-customGreen/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-3xl" /> */}
+              <div
+                className={`w-20 h-20 rounded-full ${services[4].bgColor} flex justify-center items-center text-4xl shadow-md group-hover:scale-110 transition-all duration-300`}
+              >
                 {services[4].icon}
               </div>
               <h3 className="mt-6 text-2xl font-semibold text-gray-900 group-hover:text-customGreen transition-all duration-300">
@@ -99,15 +117,15 @@ export default function OurServices() {
               </p>
               <div className="mt-6">
                 <button className="px-5 py-2 bg-customGreen text-white rounded-full shadow-md hover:bg-green-700 transition-all duration-300">
-                  Learn More
+                  <a href="/contact-with-vanguard">Get Quote</a>
                 </button>
               </div>
             </motion.div>
           )}
         </div>
-    </div>
-       {/* Table Section */}
-   <motion.div
+      </div>
+      {/* Table Section */}
+      <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.4 }}
@@ -180,6 +198,6 @@ export default function OurServices() {
           </tbody>
         </table>
       </motion.div>
-  </section>
+    </section>
   );
 }

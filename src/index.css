@@ -87,17 +87,17 @@ html {
 .marquee-content {
   display: flex;
   gap: 100px; /* Space between texts */
-  min-width: 200%;
+  min-width: 100%;
   animation: marquee 15s linear infinite;
 }
 
 /* Keyframes for smooth infinite scrolling */
 @keyframes marquee {
   from {
-    transform: translateX(15%);
+    transform: translateX(100%);
   }
   to {
-    transform: translateX(-62%);
+    transform: translateX(-100%);
   }
 }
 

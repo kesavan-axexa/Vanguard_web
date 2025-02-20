@@ -181,10 +181,10 @@ const HomeEnquiryForm = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-customGreen5 flex items-center text-sm justify-center text-white py-3 rounded-md hover:bg-customGreen transition-all shadow-md transform"
+            className="w-full bg-customGreen5 flex items-center md:text-sm text-xs justify-center text-white py-3 rounded-md hover:bg-customGreen transition-all shadow-md transform"
             disabled={loading}
           >
-            {loading ? "Submitting..." : <><FaCheckCircle className="mr-2" /> Yes! Reduce My EB</>}
+            {loading ? "Submitting..." : <><FaCheckCircle className="mr-2" /> Yes! Reduce My Electricity Bill</>}
           </button>
         </form>
       </div>

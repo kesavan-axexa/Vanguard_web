@@ -10,7 +10,7 @@ const ContactUsIndex = () => {
       <ContactUsHero />
       <ContactPage />
       <ContactUsLocation />
-      <ContactUsForm />
+      {/* <ContactUsForm /> */}
     </div>
   );
 };

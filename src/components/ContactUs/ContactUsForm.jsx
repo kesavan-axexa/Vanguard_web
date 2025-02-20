@@ -82,7 +82,7 @@ const ContactUsForm = () => {
   return (
     <div>
       {/* Floating Button with Tooltip */}
-      <div className="fixed bottom-5 md:right-5 right-2 z-50 group flex items-center">
+      <div className="fixed bottom-20 md:right-5 right-2 z-50 group flex items-center">
         <div className="absolute right-14 bg-black text-white text-xs px-4 py-2 rounded-md opacity-0 group-hover:opacity-100 transition-opacity max-w-xs whitespace-nowrap shadow-md">
           Reach out to us!
           <div className="w-2 h-2 bg-black rotate-45 absolute top-4 right-[-4px]"></div>

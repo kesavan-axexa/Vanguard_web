@@ -101,7 +101,7 @@ const Navbar = () => {
           { path: "/about", label: "About Us" },
           { path: "/services", label: "Our Services" },
           { path: "/solar-subsidy", label: "Solar Subsidy" },
-          { path: "/contact", label: "Contact Us" },
+          { path: "/contact", label: "Vanguard Pro" },
         ].map((item) => (
           <Link
             key={item.path}

@@ -15,7 +15,7 @@ const SubsidyAction = () => {
           {/* Button */}
           <div className="flex justify-center text-center w-full xl:w-auto">
             <Link
-              to="/contact"
+              to="/contact-with-vanguard"
               className="px-6 py-3 md:text-sm text-customGreen1 text-xs font-semibold bg-white rounded-full shadow-2xl transition-all duration-300 hover:bg-customGreen5 hover:text-white"
             >
               Get a Free Consultation Today

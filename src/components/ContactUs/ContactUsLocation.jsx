@@ -9,7 +9,7 @@ const ContactUsLocation = () => {
         <div className="border rounded-lg shadow-md overflow-hidden w-full md:max-w-7xl lg:max-w-7xl">
           <iframe
             title="Our Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.5866724403856!2d78.0660949740455!3d11.107873889080514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babc6e84f148ef7%3A0xf1c0b6fbd6a91a4e!2sParamathi%20Velur%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1695285412334"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3914.965253346328!2d78.01370327509355!3d11.11596578905415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babd500188cc2d1%3A0x2b4d5982c4da6bd0!2sVanguard%20solar!5e0!3m2!1sen!2sus!4v1739876277717!5m2!1sen!2sus"
             className="w-full h-96"
             allowFullScreen
             loading="lazy"

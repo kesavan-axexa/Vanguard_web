@@ -6,10 +6,7 @@ const HomeInfo = () => {
       <div className="marquee">
         <div className="marquee-content">
           <p className="text-6xl font-bold uppercase text-outline">
-            Sunshine is free! why not use it to power your home? Schedule Your FREE Solar Consultation Now!
-          </p>
-          <p className="text-6xl font-bold uppercase text-outline">
-            Sunshine is free! why not use it to power your home? Schedule Your FREE Solar Consultation Now!
+           Schedule Your FREE Solar Consultation Now!
           </p>
         </div>
       </div>

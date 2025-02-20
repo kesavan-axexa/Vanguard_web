@@ -2,11 +2,13 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 import { toast } from "react-toastify";
+import { AiOutlineInfoCircle } from "react-icons/ai";
 import "react-toastify/dist/ReactToastify.css";
 
 const Form = () => {
   const BASE_URL = import.meta.env.VITE_BASE_URL;
   const [selectedType, setSelectedType] = useState("Residential");
+  const [showTooltip, setShowTooltip] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     whatsappNumber: "",
@@ -17,6 +19,7 @@ const Form = () => {
     approvalStatus: "",
     companyName: "",
     city: "",
+    district:"",
   });
 
   const handleTypeSelection = (value) => {
@@ -32,6 +35,7 @@ const Form = () => {
       approvalStatus: "",
       companyName: "",
       city: "",
+      district:""
     });
   };
 
@@ -50,6 +54,14 @@ const Form = () => {
       toast.error("Please select a type before submitting!");
       return;
     }
+    if(formData.whatsappNumber.length != 10){
+      toast.error("Please enter a valid 10 digit phone number!");
+      return;
+    }
+    if(formData.pinCode.length != 6){
+      toast.error("Please enter a valid 6 digit pincode!");
+      return;
+    }
 
     let formPayload;
     let apiUrl;
@@ -63,6 +75,7 @@ const Form = () => {
           pincode: formData.pinCode,
           number: formData.whatsappNumber,
           billRange: formData.averageBill,
+          district: formData.district
         };
         apiUrl = "/send-commercial-form";
         break;
@@ -73,6 +86,7 @@ const Form = () => {
           phone: formData.whatsappNumber,
           pincode: formData.pinCode,
           billRange: formData.averageBill,
+          district: formData.district
         };
         apiUrl = "/send-residential-form";
         break;
@@ -86,6 +100,7 @@ const Form = () => {
           billRange: formData.averageBill,
           housingDesignation: formData.designation,
           agmStatus: formData.approvalStatus,
+          district: formData.district
         };
         apiUrl = "/send-housing-form";
         break;
@@ -119,6 +134,7 @@ const Form = () => {
           housingSocietyName: "",
           designation: "",
           approvalStatus: "",
+          district: ""
         });
       } else {
         toast.error(
@@ -223,7 +239,7 @@ const Form = () => {
             />
 
             <label className="block text-gray-700 font-medium mt-4">
-              Number *
+              Phone Number *
             </label>
             <input
               type="number"
@@ -238,7 +254,18 @@ const Form = () => {
               placeholder="Enter valid 10 digit mobile number"
               required
             />
-
+            <label className="block text-gray-700 font-medium mt-4">
+              District *
+            </label>
+            <input
+              type="text"
+              name="district"
+              value={formData.district}
+              onChange={handleInputChange}
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-customGreen outline-none"
+              placeholder="Enter your district"
+              required
+            />
             <label className="block text-gray-700 font-medium mt-4">
               Pin Code *
             </label>
@@ -259,8 +286,21 @@ const Form = () => {
 
           {selectedType === "Residential" && (
             <motion.div>
-              <label className="block text-gray-700 font-medium">
+              <label className="block text-gray-700 font-medium flex items-center gap-2">
                 What is your average monthly bill? *
+                <div className="relative flex items-center mb-0.5">
+                  <AiOutlineInfoCircle
+                    className="w-5 h-5 text-gray-500 hover:text-black cursor-pointer"
+                    onMouseEnter={() => setShowTooltip(true)}
+                    onMouseLeave={() => setShowTooltip(false)}
+                  />
+                  {showTooltip && (
+                    <div className="absolute left-6 bg-black text-white text-[14px] font-normal rounded-md p-2 shadow-lg w-64">
+                      Consider bills for the last 12 months of all electricity
+                      meters.
+                    </div>
+                  )}
+                </div>
               </label>
               <select
                 name="averageBill"
@@ -407,7 +447,7 @@ const Form = () => {
             </>
           )}
 
-          <div className="flex items-center gap-2">
+          {/* <div className="flex items-center gap-2">
             <input type="checkbox" id="agree" className="h-4 w-4" required />
             <label htmlFor="agree" className="text-gray-600 text-sm">
               I agree to Vanguard Solar's{" "}
@@ -419,7 +459,7 @@ const Form = () => {
                 privacy policy
               </a>
             </label>
-          </div>
+          </div> */}
 
           <motion.button
             type="submit"

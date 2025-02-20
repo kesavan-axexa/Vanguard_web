@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { FaPhoneAlt } from "react-icons/fa";
-import { useNavigate, Link } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom"; 
 
 export default function JoinSolarMovement() {
   const navigate = useNavigate();
@@ -62,18 +62,18 @@ export default function JoinSolarMovement() {
         {/* Contact Button */}
         <div
           className="px-6 py-3 text-lg font-semibold text-white bg-green-600 rounded-lg shadow-lg transition-all duration-300 hover:bg-green-700 flex items-center gap-2 cursor-pointer"
-          onClick={() => navigate("/contact")}
+          onClick={() => navigate("/contact-with-vanguard")}
         >
           <FaPhoneAlt className="w-5 h-5" /> Contact Us
         </div>
 
         {/* Learn More Button */}
-        {/* <Link
-          to="/services"
+        {/* <a
+          href="/services"
           className="px-6 py-3 text-lg font-semibold text-green-600 border-2 border-green-600 rounded-lg shadow-lg transition-all duration-300 hover:bg-green-700 hover:text-white"
         >
           Learn More
-        </Link> */}
+        </a> */}
       </div>
 
       {/* Subtle Bottom Glow */}

@@ -36,9 +36,11 @@ const Footer = () => {
             className="w-40 h-auto mb-4 rounded-lg"
           />
           <p className="mb-4 text-sm leading-relaxed md:w-96">
-            Earn with Us! Become a partner and grow with Vanguard Solar. Connect
-            with us today to explore business opportunities!
+            We don't just install panels.
+            We power the <span className="font-bold">FUTURE!</span> <br />
+            Bringing sustainable energy solutions to light, one panel at a time.
           </p>
+
           <div className="flex md:flex-row flex-col md:items-center md:space-x-6 text-sm">
             {/* Phone */}
             <p className="flex items-center">
@@ -47,7 +49,7 @@ const Footer = () => {
                 href="tel:9830003000"
                 className="hover:bg-white hover:text-customGreen px-2 py-1 rounded transition duration-300"
               >
-                +919443331502
+                9443331502
               </a>
             </p>
             {/* Email */}
@@ -94,40 +96,41 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 grid-cols-1 gap-10">
           {/* Links */}
           <div>
-            <h3 className="text-lg font-medium mb-4">Our Services</h3>
+            <h3 className="md:text-xl text-lg font-semibold mb-4">Our Services</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <a
-                   href="/services"
+                  href="/services"
                   className="hover:bg-white hover:text-customGreen  py-1 rounded transition duration-300"
                 >
-                 Residential Solar Solutions
+                  Residential Solar Solutions
                 </a>
               </li>
               <li>
                 <a
-                    href="/services"
+                  href="/services"
                   className="hover:bg-white hover:text-customGreen  py-1 rounded transition duration-300"
                 >
-                Commercial & Industrial Solar
+                  Commercial & Industrial Solar
                 </a>
               </li>
               <li>
                 <a
-                    href="/services"
+                  href="/services"
                   className="hover:bg-white hover:text-customGreen  py-1 rounded transition duration-300"
                 >
-                  Solar Panel Installation 
+                  Solar Panel Installation
                 </a>
               </li>
               <li>
                 <a
-                   href="/services"
+                  href="/services"
                   className="hover:bg-white hover:text-customGreen  py-1 rounded transition duration-300"
                 >
-                 On-Grid & Off-Grid Solutions
+                  On-Grid & Off-Grid Solutions
                 </a>
-              </li>  <li>
+              </li>{" "}
+              <li>
                 <a
                   href="/services"
                   className="hover:bg-white hover:text-customGreen  py-1 rounded transition duration-300"
@@ -138,7 +141,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-medium mb-4">Quick Links</h3>
+            <h3 className="md:text-xl text-lg font-semibold mb-4">Quick Links</h3>
             <div className="grid md:grid-cols-2 grid-cols-1 md:gap-x-10 text-sm">
               {/* First Column */}
               <ul className="space-y-2">
@@ -160,7 +163,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                      href="/services"
+                    href="/services"
                     className="hover:bg-white hover:text-customGreen  py-1 rounded transition duration-300"
                   >
                     Our Services
@@ -200,7 +203,7 @@ const Footer = () => {
 
           {/* Address */}
           <div className="col-span-2">
-            <h3 className="text-lg font-medium mb-4">Address</h3>
+            <h3 className="md:text-xl text-lg font-semibold mb-4">Address</h3>
             <p className="text-sm leading-relaxed">
               75-7 Kattu Salai, Chinnu Nagar, Paramathi Velur, Namakkal Dt Tamil
               Nadu, India - 638182.
