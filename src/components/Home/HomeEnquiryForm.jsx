@@ -160,7 +160,6 @@ const HomeEnquiryForm = () => {
               )}
             </div>
           ))}
-
           {/* Electricity Bill Dropdown */}
           <div className="w-full max-w-md mx-auto">
             <label
@@ -170,15 +169,16 @@ const HomeEnquiryForm = () => {
               Monthly Electricity Bill <span className="text-red-500">*</span>
             </label>
             <div className="relative">
-              {/* Icon stays fixed */}
-              <FaBolt className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg" />
+              {/* Fixed Icon */}
+              <FaBolt className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg pointer-events-none" />
 
               {/* Select Dropdown */}
               <select
                 id="billRange"
                 value={formData.billRange}
                 onChange={handleChange}
-                className="mt-1 block w-full pl-10 p-3 rounded-md border border-gray-300 shadow-sm focus:ring-customGreen focus:border-customGreen transition-all text-sm sm:text-base"
+                className="mt-1 block w-full pl-10 pr-4 h-12 text-sm sm:text-base rounded-md border border-gray-300 shadow-sm bg-white 
+                 appearance-none focus:ring-customGreen focus:border-customGreen transition-all"
               >
                 <option value="">Select your bill range</option>
                 <option value="less1500">Less than ₹1500</option>
@@ -192,8 +192,7 @@ const HomeEnquiryForm = () => {
               <p className="text-red-500 text-xs mt-1">{errors.billRange}</p>
             )}
           </div>
-
-          {/* Submit Button */}
+          ;{/* Submit Button */}
           <button
             type="submit"
             className="w-full bg-customGreen5 flex items-center md:text-sm text-xs justify-center text-white py-3 rounded-md hover:bg-customGreen transition-all shadow-md transform"
