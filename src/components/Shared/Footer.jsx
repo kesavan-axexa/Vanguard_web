@@ -79,7 +79,9 @@ const Footer = () => {
               <FaYoutube size={24} />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/vanguard.solar?igsh=ZHJ3dHhwMTBucDh5&utm_source=qr"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group hover:bg-white hover:text-customGreen p-2 rounded-full transition duration-300"
             >
               <FaInstagram size={24} />

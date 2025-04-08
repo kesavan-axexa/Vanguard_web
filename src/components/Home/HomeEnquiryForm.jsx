@@ -20,6 +20,7 @@ const HomeEnquiryForm = () => {
   const [loading, setLoading] = useState(false); // Loader state
   const BASE_URL = import.meta.env.VITE_BASE_URL;
 
+  console.log("BASE_URL",BASE_URL);
   const sectionRef = useRef(null);
   const textRef = useRef(null);
   const imageRef = useRef(null);
