@@ -132,9 +132,9 @@ const HomeEnquiryForm = () => {
           ref={imageRef}
         >
           {[
-            { id: "name", icon: <FaUser />, placeholder: "Full Name" },
-            { id: "phone", icon: <FaPhone />, placeholder: "Phone Number" },
-            { id: "city", icon: <FaCity />, placeholder: "City" },
+            { id: "name", icon: <FaUser />, placeholder: "Full Name", maxLength: 20 },
+            { id: "phone", icon: <FaPhone />, placeholder: "Phone Number", maxLength: 10 },
+            { id: "city", icon: <FaCity />, placeholder: "City", maxLength: 40 },
           ].map((field, index) => (
             <div key={index} className="relative">
               <label
@@ -154,6 +154,7 @@ const HomeEnquiryForm = () => {
                   onChange={handleChange}
                   className="mt-1 block w-full pl-10 p-3 rounded-md border border-gray-300 shadow-sm focus:ring-customGreen focus:border-customGreen transition-all"
                   placeholder={`Enter your ${field.placeholder.toLowerCase()}`}
+                  maxLength={field.maxLength} 
                 />
               </div>
               {errors[field.id] && (
